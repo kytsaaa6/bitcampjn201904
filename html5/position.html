@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+    
+    <head>
+    <meta charset="UTF-8">
+    <title>위치 속성 테스트</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            border: 1px solid gray;
+
+            position: absolute;
+        }
+
+        #box1 {
+            background-color: red;
+            left: 50px;
+            top: 50px;
+            /*z-index: 10000; 우선순위, 숫자가 클수록 앞에 위치*/
+        }
+
+        #box2 {
+            background-color: blue;
+            left: 100px;
+            top: 100px;
+        }
+
+        #box3 {
+            background-color: yellow;
+            left: 150px;
+            top: 150px;
+        }
+
+        #box4 {
+            background-color: green;
+            left: 200px;
+            top: 200px;
+        }
+
+        #wrap {
+            height: 200px;
+            border: 1px solid gray;
+            position: relative;
+            overflow-x: scroll;
+        }
+
+        .img {
+            width: 20%;
+            float: left;
+            margin: 10px;
+        }
+
+        h2 {
+            /* float 속성 초기화(미적용) */
+/*            clear: both;*/
+        }
+
+        .wrap {
+            /* wrap 넘어가는 태그 무시(float 미적용) */
+            overflow: hidden;
+        }
+        
+        .wrap>h1 {
+            margin: 10px 30px;
+            border: 1px solid gray;
+            /* 오른쪽 아래 흐림도 색상 */
+            box-shadow: 5px 5px 5px gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <img class="img" src="images/pika.jpg">
+        <h1>APPLE</h1>
+        <p>
+            애플 주식회사(영어: Apple Inc.)는 미국의 소프트웨어 및 컴퓨터 하드웨어를 개발, 제작하는 회사이다. 이전 명칭은 애플 컴퓨터 주식회사(영어: Apple Computer, Inc.)였다.
+
+            최초의 개인용 컴퓨터를 만든 회사이며, 최초로 키보드와 모니터를 가지고 있는 애플 I을 출시하였고, 애플 II는 공전의 히트작이 되어 개인용 컴퓨터의 시대를 열었다. 이후 매킨토시(Macintosh)로 마우스를 이용한 컴퓨터 조작과 같은 그래픽 사용자 인터페이스의 보급을 선도하였다. 현재 개인용 컴퓨터인 매킨토시, MP3 플레이어인 아이팟, 스마트폰인 아이폰, 가정용 멀티미디어 기기인 애플 TV, 태블릿 PC인 아이패드 등의 제품을 판매하고 있다. 그리고 아이팟에서 재생할 수 있는 음원을 인터넷을 통해 제공하는 아이튠즈 스토어와 OS X, 아이폰 사용자의 편의를 위한 인터넷 서스인 아이클라우드(iCloud)를 제공하고 있다. 또한 2014년 Apple Special Event에서 애플워치가 공개 되었다.</p>
+    </div>
+    <h2>안드로이드</h2>
+
+
+
+    <!--
+    <h1>header</h1>
+
+    <div id="wrap">
+        <div id="box1" class="box"></div>
+        <div id="box2" class="box"></div>
+        <div id="box3" class="box"></div>
+        <div id="box4" class="box"></div>
+    </div>
+
+    <h2>footer</h2>
+-->
+
+
+</body></html>

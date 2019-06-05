@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 선택자</title>
+
+    <style>
+        /*전체 선택자*/
+        * {
+            /*            color: red;*/
+            /*            background-color: aquamarine*/
+        }
+
+        /*태그 선택자*/
+
+        /*
+        h1 {
+            color: red;
+            text-align: center;
+        }
+
+        p {
+            color: blue;
+            line-height: 32px;
+        }
+*/
+
+
+        /*중복 선택*/
+        /*
+        h1,
+        p,
+        div {
+
+            background-color: antiquewhite;
+        }
+*/
+
+        /*id 선택자, 레이아웃을 구성하는 블록단위에서 사용*/
+        #header {
+            background-color: palevioletred;
+
+            margin: 0 auto;
+            /*상하 좌우*/
+
+            width: 500px;
+        }
+
+        #wrap {
+            background-color: yellow;
+            padding: 20px;
+
+            margin: 0 auto;
+            /*상하 좌우*/
+
+            width: 500px;
+        }
+
+        #content {
+            background-color: blueviolet;
+            margin-bottom: 50px;
+        }
+
+        #aside {
+            background-color: chartreuse
+        }
+
+        #footer {
+            background-color: cadetblue;
+
+            margin: 0 auto;
+            /*상하 좌우*/
+
+            width: 500px;
+        }
+
+        /*class 선택자*/
+        .select {
+            color: red;
+        }
+
+        .text_bold {
+            font-weight: bold;
+        }
+
+        .text_itelic {
+            font-style: italic
+        }
+
+        li.text_bold {
+            background-color: yellow;
+        }
+
+        /*속성 선택자*/
+        input[type=text] {
+            background-color: antiquewhite;
+            /*두께 모양 컬러*/
+            border: 1px solid #AAAAAA;
+
+        }
+
+        input[type=password] {
+            background-color: aqua;
+            border: 1px solid blue;
+        }
+
+        input[type=checkbox] {
+            width: 30px;
+            height: 30px;
+        }
+
+        input[type=button] {
+            padding: 10px 30px;
+            font-weight: 900;
+            background-color: cadetblue;
+            border: 1px solid #AAAAAA;
+            color: #FFFFFF;
+        }
+
+        /*후손 선택자, 특정한 태그의 후손을 선택할 때 사용*/
+        #header h1 {
+            color: red;
+        }
+
+        #content h1 {
+            color: blue;
+        }
+
+        /*자손 선택자, 특정한 태그의 직접적인 자손을 선택할 때 사용*/
+        #header>h1 {
+            background-color: black;
+        }
+
+        #content>h1 {
+            background-color: black;
+        }
+
+        table>tbody>tr>th {
+            color: blue;
+        }
+
+        /*동위 선택자*/
+        h1+h2 {
+            color: orange;
+        }
+
+        h1~h2 {
+            background-color: darkseagreen
+        }
+
+        h1:hover {
+            color: beige;
+            background-color: darkblue;
+        }
+
+        h1+h2:hover {
+            color: #000000;
+            background-color: orange;
+        }
+
+        h1~h2:active {
+            color: red;
+            background-color: aqua;
+        }
+
+        /*상태 선택자*/
+        input:disabled {
+            background-color: black;
+        }
+
+        input:focus {
+            background-color: chartreuse
+        }
+
+        #menu {
+            display: none;
+        }
+
+        input[type=checkbox]:checked+#menu {
+            display: block;
+            background-color: aqua;
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        label:hover {
+            background-color: aqua;
+        }
+
+        /*구조 선택자*/
+        #cir {
+            width: 100px;
+            height: 100px;
+
+            background-color: aqua;
+            /*            border-radius: 10px 30px 40px 50px*/
+            border-radius: 50px;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+
+            border-radius: 50px;
+        }
+
+        #gnb {
+            list-style: none;
+            overflow: hidden;
+            /* gnb 영역 밖으로 오는 항목은 내린다 */
+        }
+
+        #gnb>li {
+            float: left;
+            padding: 5px 15px;
+            border: 1px solid #DDDDDD;
+            margin-left: -1px;
+        }
+
+        #gnb>li:first-child {
+            background-color: aqua;
+            border-radius: 10px 0 0 10px;
+        }
+
+        #gnb>li:last-child {
+            background-color: aqua;
+            border-radius: 0 10px 10px 0;
+        }
+
+        #gnb>li:nth-child(2n) {
+            background-color: #8c7ae6;
+        }
+
+        #gnb>li:nth-child(2n+1) {
+            background-color: aqua;
+        }
+
+        #gnb>li:hover {
+            background-color: darkgray;
+            color: azure;
+        }
+
+        /*링크 선택자*/
+        a {
+            text-decoration: none;
+            display: block;
+            padding: 5px 15px;
+        }
+
+        a:hover {
+            background-color: darkgray;
+            color: azure;
+        }
+
+        a:visited {
+            color: black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <ul id="gnb">
+        <li><a href="http://www.naver.com">menu-00</a></li>
+        <li><a href="http://www.naver.com">menu-01</a></li>
+        <li><a href="http://www.naver.com">menu-02</a></li>
+        <li><a href="http://www.naver.com">menu-03</a></li>
+        <li><a href="http://www.naver.com">menu-04</a></li>
+        <li><a href="http://www.naver.com">menu-05</a></li>
+    </ul>
+
+
+    <img src="pika.jpg">
+    <div id="cir"></div>
+
+
+    <!--
+    <input> <br>
+    <input disabled> <br>
+    <label for="chk">메뉴</label>
+    <input type="checkbox" id="chk">
+
+    <div id="menu">
+        <ul>
+            <li>홈</li>
+            <li>회사소개</li>
+            <li>서비스소개</li>
+            <li>오시는길</li>
+        </ul>
+    </div>
+-->
+
+
+
+
+    <!--
+   <h1>Header - 1</h1> 
+   <h2>Header - 2</h2> 
+   <h2>Header - 2</h2> 
+   <h2>Header - 2</h2> 
+   <h2>Header - 2</h2>
+   
+   
+    <table border="1">
+        <tr>
+            <th>이름</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <td>유영진</td>
+            <td>서울특별시 서초구</td>
+        </tr>
+    </table>
+-->
+
+
+
+
+
+    <!--
+    <div id="header">
+        <h1>타이틀</h1>
+        <div>
+            <h1>타이틀2</h1>
+        </div>
+    </div>
+    
+    <div id="content">
+        <h1>타이틀 3</h1>
+        <p>내용</p>
+    </div>
+-->
+
+
+
+    <!--
+    <input type="text"> <br>
+    <input type="password"> <br>
+    <input type="button" value="버튼"> <br>
+    <input type="checkbox">
+-->
+
+
+
+    <!--
+    <div class="text_bold">과일 리스트</div>
+    <ul>
+        <li class="select text_bold">사과</li>
+        <li>바나나</li>
+        <li class="select text_itelic">수박</li>
+        <li class="text_bold">메론</li>
+    </ul>
+-->
+
+
+    <!--
+    <div id="header">
+        Header 영역
+    </div>
+    
+    <div id="wrap">
+        <div id="content"> 
+        Content 영역 
+        </div>
+        <div id="aside"> 
+        Aside 영역
+        </div>
+    </div>
+    <div id="footer"> 
+        Footer 영역 
+    </div>
+
+
+    <li></li>
+-->
+
+
+    <!--
+    <h1> 제목 글자 태그 </h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate arcu vel nulla feugiat fermentum. In hac habitasse platea dictumst. Nunc id tincidunt augue. Phasellus tellus dolor, consequat id hendrerit in, convallis eu metus. Proin eleifend tempor mauris. Morbi vitae rhoncus nisl. Sed at imperdiet arcu.</p>
+
+    <div>
+        DIV 블럭 영역
+    </div>
+-->
+
+</body></html>
