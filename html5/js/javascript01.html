@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+
+<html>
+    
+    <head>
+    <title>Javascript First</title>
+    <style></style>
+    <script>
+        /* // 변수
+        // 문자열,숫자,boolean,
+        // ★함수 function() {};,★객체 {};, undefined
+        var pi = 3.14159265;
+        var r = 10;
+
+        // 알림창
+        // 숫자(정수,실수 문자열, 변수 등등... print 문과 비슷
+        // "" '' 둘 다 허용
+        alert('JavaScript 입니당.\n<img src="test.jpg">\n23542\n3235.132');
+        alert('원의 둘레는 : '+pi*2*r);*/
+
+        // 변수 6개 타입
+        var v; // 1. undefined - 변수에 값이 할당되어있지 않은 상태
+        var num = 10; // 2. number
+        var str = 'Hello~ Min~!'; // 3. String
+        var boolCheck = true; // 4. bool
+        var functionType = function() {}; // 5. function
+        var objType = {}; // 6. object
+
+        // 변수의 자료형 타입을 확인 typeof
+        /*                alert(typeof(v));   
+                        alert(typeof(num));
+                        alert(typeof(str));
+                        alert(typeof(boolCheck));
+                        alert(typeof(functionType));
+                        alert(typeof(objType));*/
+
+        var num1 = '30';
+        var num2 = '30a';
+        
+        // Number() 문자열->숫자로 변환, 변환할수 없으면 NaN 반환
+        // parseInt() 문자열->숫자로 변환, 변환할수 있는 부분까지 변환
+        var num3 = Number(num1);
+        alert(typeof(num3));
+        alert(num3);
+        var num4 = Number(num2);
+        // alert(num4);    // NaN -> 30a는 숫자로 변할수 없음
+        
+        // javascript 배열
+        
+        var array = [1,2,3,4,5];
+        
+        alert(array);
+        
+        var result = 0;
+        
+        for(var i=0; i<array.length; i++) {
+            result += array[i];
+            
+        }
+        
+        alert(result);
+        
+        var array = [
+            1,
+            'one',
+            false,
+            function(){},
+            {},
+            [1,2,3,4,5]
+        ];
+        
+        alert(array);
+        
+        // 객체의 프로퍼티 열거 
+        // -> var o : 식별할 수 있는 이름 또는 인덱스
+        for(var o in array) {
+            alert(typeof(array[o]));
+        }
+        
+        window.onload = function() {
+
+
+            // confirm 확인:true, 취소:false 반환
+            var chk = confirm('출력할까요?');
+
+            // chk가 true 면 아래 리스트 출력
+            if (chk) {
+
+                var list = '';
+                list += '<ul>\n';
+                list += '   <li>' + v + '</li>\n';
+                list += '   <li>' + num + '</li>\n';
+                list += '   <li>' + str + '</li>\n';
+                list += '   <li>' + boolCheck + '</li>\n';
+                list += '   <li>' + functionType + '</li>\n';
+                list += '   <li>' + objType + '</li>\n';
+                list += '</ul>\n';
+
+                alert(list);
+
+                // body 태그안에 list 변수를 동적으로 넣음
+                document.body.innerHTML = list;
+            };
+        };
+    </script>
+</head>
+
+<body>
+
+
+</body></html>
