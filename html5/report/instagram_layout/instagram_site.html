@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Instagram 에 오신것을 환영합니다.</title>
+    <style>
+        /* 
+        전체 블록 : warp
+        구분 블록 : header, container, footer
+        
+        - 각 하위 블록 및 태그 -
+        header - img, input, a
+        container - title(img,table), contents(div(img))
+        footer - a, p
+        */
+        
+        
+        /* 기본값 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* 메인 랩 */
+        #wrap {
+            width: 938px;
+            margin: 0 auto;
+            background-color: #FAFAFA;
+        }
+
+        /* 헤더 구성(img, input, a)
+           상단바 고정 */
+        #header {
+            width: 938px;
+            height: 100px;
+            background-color: white;
+            border: 1px solid #FAFAFA;
+            position: fixed;
+        }
+
+        /* Insta 이미지 크기, 위치 */
+        #header>img {
+            width: 200px;
+            margin-left: 50px;
+            margin-top: 20px;
+            float: left;
+        }
+
+        /* 검색창 크기,위치 */
+        #header>input {
+            width: 200px;
+            height: 20px;
+            margin-left: 160px;
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        /* 로그인 링크 크기,위치,색상 */
+        #header>a {
+            float: right;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 40px;
+            margin-right: 20px;
+            color: #5CAAF3
+        }
+
+        /* 타이틀, 콘텐츠로 구성 */
+        #container {
+            background-color: #FAFAFA;
+            padding-top: 70px;
+        }
+
+        /* 타이틀 높이 설정 */
+        #title {
+            height: 400px;
+        }
+
+        /* 프로필 이미지 크기,위치 */
+        #title>img {
+            width: 250px;
+            height: 250px;
+            border-radius: 150px;
+            margin-top: 80px;
+            margin-left: 150px;
+            float: left;
+        }
+
+        /* 프로필 설명 */
+        #profile {
+            width: 370px;
+            height: 400px;
+            margin-left: 480px;
+            padding-top: 80px;
+        }
+        
+        /* 프로필 ID */
+        #profile tr:nth-child(1)>td {
+            font-size: 30px;
+        }
+
+        /* 프로필 팔로우 블록 */
+        #profile tr:nth-child(1)>th {
+            display: block;
+            width: 80px;
+            height: 20px;
+            padding: 5px;
+            margin-top: 10px;
+            margin-right: 20px;
+            font-size: 16px;
+            font-weight: normal;
+            color: white;
+            background-color: #3797F0;
+            border-radius: 5px;
+        }
+        
+        /* 컨텐츠 블록 크기,위치*/
+        #contents {
+            clear: both;
+            width: 900px;
+            margin-left: 30px;
+            margin-top: 20px;
+        }
+
+        /* 컨텐츠 내용 크기,위치 */
+        .box {
+            float: left;
+            margin: 20px;
+        }
+
+        .box>img {
+            width: 250px;
+            height: 250px;
+        }
+
+        /* 푸터 블록 */
+        #footer {
+            clear: both;
+            width: 938px;
+            height: 100px;
+            margin-left: 30px;
+            padding-top: 50px;
+        }
+
+        #footer>a {
+            padding: 30px;
+            text-decoration: none;
+            color: #9AAEC2;
+            font-weight: bold;
+        }
+
+        #footer>p {
+            padding: 30px 30px 30px 0;
+            text-align: center;
+            font-weight: bold;
+            color: #9D9D9D
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="wrap">
+
+        <div id="header">
+            <img src="logo.png">
+            <input type="text" placeholder="검색">
+            <a href="https://www.instagram.com/accounts/login/">로그인</a>
+        </div>
+
+        <div id="container">
+            <div id="title">
+                <img src="프로필사진.jpg">
+                
+                <table id="profile">
+                    <tr>
+                        <td colspan="2">foodyinkorea</td>
+                        <th colspan="2">팔로우</th>
+                    </tr>
+                    
+                    <tr>
+                        <td>게시물 679</td>
+                        <td>팔로워 67.1</td>
+                        <td>팔로우 48</td>
+                    </tr>
+                    
+                    <tr>
+
+                        <td colspan="3">
+                            <h4>유명블로거들이 정리한 맛집 100선 🍜</h4>
+                            🇰🇷 It's all about fancy food in Korea<br>
+                            🏳️ and sometimes other countries.<br>
+                            🍴 다년간 축적한 정보를 모두 쏟아냅니다.<br>
+                            ⏰ 매일 꾸준히 업로드합니다.<br>
+                            🥇 맛있는 음식을 좋아합니다.<br>
+                            😎 SOON! (ENG VER.)<br>
+                            <a href="fb.me/foodyinkorea">fb.me/foodyinkorea</a>
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+            <div id="contents">
+                <div class="box"><img src="food1.png"></div>
+                <div class="box"><img src="food2.png"></div>
+                <div class="box"><img src="food3.png"></div>
+                <div class="box"><img src="food4.png"></div>
+                <div class="box"><img src="food5.png"></div>
+                <div class="box"><img src="food6.png"></div>
+            </div>
+
+        </div>
+
+        <div id="footer">
+            <a href="#">Instagram 정보</a>
+            <a href="#">지원</a>
+            <a href="#">홍보 센터</a>
+            <a href="#">API</a>
+            <a href="#">채용 정보</a>
+            <a href="#">개인정보처리방침</a>
+            <a href="#">약관</a>
+            <p>2019 INSTAGRAM</p>
+        </div>
+
+    </div>
+</body></html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>중앙 정렬</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            
+        }
+        
+        /* 폰트 import: <style> 안에 , link: <head> 안에 */
+        @import url('https://fonts.googleapis.com/css?family=Do+Hyeon|Jua|Sunflower:300,700&display=swap&subset=korean');
+        
+        body {
+            background-color: beige;
+            font-family: 'Jua';
+        }
+
+        #main_wrap {
+            width: 300px;
+            height: 300px;
+            background-color: #FFF;
+            border: 1px solid #DDD;
+            box-shadow: 0px 10px 10px #AAA;
+
+            position: absolute;
+
+            left: 50%;
+            top: 50%;
+
+            /*width와 height의 절반을 margin으로 빼줘야 정중앙으로 위치*/
+            margin-left: -150px;
+            margin-top: -300px;
+        }
+        
+        hr {
+            border: 0;
+            border-top: 1px solid #DDD;
+            margin: 5px 0;
+            
+        }
+        
+        input, button {
+            width: 100%;
+            
+            
+        }
+        
+        #main_wrap>h1 {
+/*
+            height: 80px;
+            line-height: 80px;
+*/
+            padding: 15px; 0;
+            text-align: center;
+        }
+        
+        #main_wrap>form>table {
+            width: 100%;
+        }
+        
+        #main_wrap>form>table td {
+            padding: 5px;
+            text-align: center;
+        }
+        
+        #main_wrap>form>table td:nth-of-type(1) {
+            width: 75px;
+        }
+        
+        #info {
+            text-align: center;
+        }
+        
+        button, input[type=submit] {
+            display: block;
+            margin: 5px 0;
+            padding: 10px;
+        }
+        
+        button {
+            background-color: darkgray;
+            border: 1px solid #333333
+        }
+        
+        input[type=submit] {
+            background-color: cornflowerblue;
+            color: white;
+            border: 1px solid darkgray;
+        }
+        
+    </style>
+
+
+</head>
+
+
+
+<body>
+    <div id="main_wrap">
+
+        <h1>LOGIN</h1>
+        <hr>
+            <form>
+            <table>
+                <tr>
+                    <td><label for="userID">ID</label></td>
+                    <td><input type="text" id="userID"></td>
+                </tr>
+                <tr>
+                    <td><label for="userPW">PW</label></td>
+                    <td><input type="password" id="userPW"></td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        <input type="submit" value="로그인">
+                        <!--button 태그는 submit의 속성이랑 같음-->
+                        <button>취소</button>
+                    </th>
+                </tr>
+            </table>
+        </form>
+
+        <div id="info">
+            <a href="">회원가입</a> |
+            <a href="">ID 찾기</a> |
+            <a href="">PW 찾기</a> |
+        </div>
+
+    </div>
+
+
+
+</body>
+
+</html>
