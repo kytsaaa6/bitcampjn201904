@@ -7,6 +7,23 @@
     <title>Javascript First</title>
     <style></style>
     <script>
+        
+        
+        
+        
+        
+/*        1. 변수선언: var 식별자;
+        2. 자료형 결정: 초기화 시에 자료형이 결정
+        3. 자료형의 종류:
+            1) 숫자타입 2) 문자타입
+            3) boolean 4) 함수(function)
+            5) 객체(object) 6) undefined(변수초기화X)
+        4. 형변환: Number() - 문자 - > 숫자, - > 문자 String()*/
+
+
+
+
+
         /* // 변수
         // 문자열,숫자,boolean,
         // ★함수 function() {};,★객체 {};, undefined
@@ -37,7 +54,7 @@
 
         var num1 = '30';
         var num2 = '30a';
-        
+
         // Number() 문자열->숫자로 변환, 변환할수 없으면 NaN 반환
         // parseInt() 문자열->숫자로 변환, 변환할수 있는 부분까지 변환
         var num3 = Number(num1);
@@ -45,39 +62,38 @@
         alert(num3);
         var num4 = Number(num2);
         // alert(num4);    // NaN -> 30a는 숫자로 변할수 없음
-        
+
         // javascript 배열
-        
-        var array = [1,2,3,4,5];
-        
+
+        var array = [1, 2, 3, 4, 5];
+
         alert(array);
-        
+
         var result = 0;
-        
-        for(var i=0; i<array.length; i++) {
+
+        for (var i = 0; i < array.length; i++) {
             result += array[i];
-            
         }
-        
+
         alert(result);
-        
+
         var array = [
             1,
             'one',
             false,
-            function(){},
+            function() {},
             {},
-            [1,2,3,4,5]
+            [1, 2, 3, 4, 5]
         ];
-        
+
         alert(array);
-        
+
         // 객체의 프로퍼티 열거 
         // -> var o : 식별할 수 있는 이름 또는 인덱스
-        for(var o in array) {
+        for (var o in array) {
             alert(typeof(array[o]));
         }
-        
+
         window.onload = function() {
 
 
