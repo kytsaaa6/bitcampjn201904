@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+    <title>네이버 : 회원가입</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "돋움", Dotum;
+            background-color: #F5F6F7;   
+        }
+
+        ul {
+            list-style: none;
+            
+        }
+        
+        input {
+            background-color: white;
+            font-size: 18px;
+            border: 1px solid #DDD;
+        }
+        
+        select {
+            background-color: white;
+            border: 1px solid #DDD;
+        }
+        
+        #main_wrap {
+            margin: 0px auto;
+            width: 600px;
+        }
+
+        #header {
+            margin-top: 20px;
+        }
+
+        #header>img {
+            margin-left: 175px;
+            margin-top: 30px;
+        }
+
+        #joinForm {
+            width: 500px;
+            margin-top: 30px;
+            margin-left: 75px;
+        }
+
+        #joinForm td {
+            display: block;
+            margin: 5px 0;
+        }
+
+        #joinForm label {
+            font-weight: bold;
+            font-size: 15px;
+
+        }
+        
+        #uId {
+            padding-right: 50px;
+        }
+
+        #uId::placeholder {
+            font-size: 14px;
+            text-align: right;
+        }
+        
+        .basic {
+            display: block;
+            width: 430px;
+            height: 25px;
+            font-size: 18px;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        
+        #uBir>li>input {
+            display: block;
+            float: left;
+            padding: 10px;
+            width: 122px;
+            height: 25px;
+            margin: 5px 0;
+            
+        }
+
+        #uBir>li>select {
+            float: left;
+            width: 142px;
+            height: 47px;
+            background-color: white;
+            margin: 5px 10px;
+            overflow: hidden;
+        }
+
+        #year::placeholder {
+            font-size: 14px;
+        }
+
+        #day::placeholder {
+            font-size: 14px;
+        }
+
+        #uEmail::placeholder {
+            font-size: 14px;
+        }
+
+        #phone ::placeholder {
+            font-size: 14px;
+        }
+        
+        select {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        #gender {
+            display: block;
+            width: 450px;
+            height: 45px;
+            margin: 5px 0;
+        }
+
+        #uPhone {
+            display: block;
+            width: 450px;
+            height: 45px;
+            font-size: 14px;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        #phone {
+            float: left;
+            width: 450px;
+            display: block;
+        }
+        
+
+        #phone>li #pInput {
+            float: left;
+            width: 290px;
+            padding: 10px;
+            height: 22px;
+            margin-right: 10px;
+        }
+        
+        #phone>li #pBtn {
+            width: 128px;
+            height: 45px;
+            font-size: 14px;
+            color: white;
+            background-color: #08A600;
+        }
+        
+        #joinForm #uJoin {
+            clear: both;
+            width: 450px;
+            height: 65px;
+            margin-top: 30px;
+            font-size: 20px;
+            color: white;
+            background-color: #08A600;
+        }
+        /* 푸터 */
+        #footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #8E8E8E;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main_wrap">
+        <div id="header">
+            <img src="../../images/naver_logo.PNG">
+        </div>
+
+        <div id="container">
+            <form id="joinForm">
+                <table>
+                    <tr>
+                        <td><label for="uId">아이디</label> <br>
+                            <input type="text" id="uId" class="basic" placeholder="@naver.com"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="uPw">비밀번호</label> <br>
+                            <input type="password" id="uPw" class="basic"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="uPw2">비밀번호 재확인</label> <br>
+                            <input type="password" id="uPw2" class="basic"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="uName">이름</label> <br>
+                            <input type="text" id="uName" class="basic"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="uBir">생년월일</label> <br>
+                            <ul id="uBir">
+                                <li><input type="text" id="year" placeholder="년(4자)"></li>
+                                <li><select id="month">
+                                        <option>월</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                    </select>
+                                </li>
+                                <li><input type="text" id="day" placeholder="일"></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><label for="uId">성별</label> <br>
+                            <select id="gender">
+                                <option>성별</option>
+                                <option>남자</option>
+                                <option>여자</option>
+                            </select>
+                    </tr>
+                    <tr>
+                        <td><label for="uEmail">본인확인 이메일</label> <br>
+                            <input type="text" id="uEmail" class="basic" placeholder="선택입력"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="uId">휴대전화</label> <br>
+                            <select id="uPhone">
+                                <option>대한민국 +82</option>
+                            </select>
+                            <ul id="phone">
+                                <li><input type="text" class="number" id="pInput" placeholder="전화번호 입력"></li>
+                                <li><input type="button" class="number" id="pBtn" value="인증번호 받기"></li>
+                                <li><input type="text" class="basic" placeholder="인증번호를 입력하세요"></li>
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" id="uJoin" value="가입하기"></td>
+                    </tr>
+
+                </table>
+
+
+            </form>
+
+
+        </div>
+
+
+
+
+
+        <div id="footer">
+            <p>회사, 동아리 등 단체에서 사용할 ID가 필요하세요? 단체 회원 가입 <br> <br>
+                이용약관 | 개인정보처리방침 | 책임의 한계와 법적고지 | 회원정보 | 고객센터 <br> <br>
+                © NAVER Corp.</p>
+        </div>
+    </div>
+
+</body></html>
