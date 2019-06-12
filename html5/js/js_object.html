@@ -46,141 +46,143 @@
 
         // 학생정보를 저장하는 배열 생성
         var students = [];
-/*        students.push({
-            name: '홍길동1',
-            kor: 87,
-            meth: 90,
-            eng: 70
-        });*/
-        students.push(new Student('홍길동0',07,70,90));
-        students.push(new Student('홍길동1',17,70,90));
-        students.push(new Student('홍길동2',27,70,90));
-        students.push(new Student('홍길동3',37,70,90));
-        students.push(new Student('홍길동4',47,70,90));
-        students.push(new Student('홍길동5',57,70,90));
-        students.push(new Student('홍길동6',67,70,90));
-        students.push(new Student('홍길동7',77,70,90));
-        students.push(new Student('홍길동8',87,70,90));
-        students.push(new Student('홍길동9',97,70,90));
-/*        students.push({
-            name: '홍길동1',
-            kor: 17,
-            meth: 10,
-            eng: 17
-        });
-        students.push({
-            name: '홍길동12',
-            kor: 27,
-            meth: 20,
-            eng: 27
-        });
-        students.push({
-            name: '홍길동13',
-            kor: 37,
-            meth: 30,
-            eng: 37
-        });
-        students.push({
-            name: '홍길동14',
-            kor: 47,
-            meth: 40,
-            eng: 47
-        });
-        students.push({
-            name: '홍길동15',
-            kor: 57,
-            meth: 50,
-            eng: 57
-        });
-        students.push({
-            name: '홍길동16',
-            kor: 67,
-            meth: 60,
-            eng: 67
-        });
-        students.push({
-            name: '홍길동17',
-            kor: 77,
-            meth: 70,
-            eng: 77
-        });
-        students.push({
-            name: '홍길동18',
-            kor: 87,
-            meth: 80,
-            eng: 87
-        });
-        students.push({
-            name: '홍길동19',
-            kor: 97,
-            meth: 90,
-            eng: 97
-        });*/
+        /*        students.push({
+                    name: '홍길동1',
+                    kor: 87,
+                    meth: 90,
+                    eng: 70
+                });*/
+        students.push(new Student('홍길동0', 07, 70, 90));
+        students.push(new Student('홍길동1', 17, 70, 90));
+        students.push(new Student('홍길동2', 27, 70, 90));
+        students.push(new Student('홍길동3', 37, 70, 90));
+        students.push(new Student('홍길동4', 47, 70, 90));
+        students.push(new Student('홍길동5', 57, 70, 90));
+        students.push(new Student('홍길동6', 67, 70, 90));
+        students.push(new Student('홍길동7', 77, 70, 90));
+        students.push(new Student('홍길동8', 87, 70, 90));
+        students.push(new Student('홍길동9', 97, 70, 90));
+        /*        students.push({
+                    name: '홍길동1',
+                    kor: 17,
+                    meth: 10,
+                    eng: 17
+                });
+                students.push({
+                    name: '홍길동12',
+                    kor: 27,
+                    meth: 20,
+                    eng: 27
+                });
+                students.push({
+                    name: '홍길동13',
+                    kor: 37,
+                    meth: 30,
+                    eng: 37
+                });
+                students.push({
+                    name: '홍길동14',
+                    kor: 47,
+                    meth: 40,
+                    eng: 47
+                });
+                students.push({
+                    name: '홍길동15',
+                    kor: 57,
+                    meth: 50,
+                    eng: 57
+                });
+                students.push({
+                    name: '홍길동16',
+                    kor: 67,
+                    meth: 60,
+                    eng: 67
+                });
+                students.push({
+                    name: '홍길동17',
+                    kor: 77,
+                    meth: 70,
+                    eng: 77
+                });
+                students.push({
+                    name: '홍길동18',
+                    kor: 87,
+                    meth: 80,
+                    eng: 87
+                });
+                students.push({
+                    name: '홍길동19',
+                    kor: 97,
+                    meth: 90,
+                    eng: 97
+                });*/
 
 
-/*        for (var k in students) {
-            // 총점을 구하는 메서드 정의, 추가
-            students[k].getSum = function() {
-                return this.kor + this.meth + this.eng;
-            };
-            // 평균을 구하는 메서드 정의, 추가
-            students[k].getAverage = function() {
-                return this.getSum() / 3;
-            };
-        };*/
-        
-    
-        students.sort(function(left, right){
-            return right.getSum()-left.getSum();
-        });
-        
-        var output = '이름          총점     평균\n';
-        for(var i=0; i<students.length; i++) {
-/*            output += students[i].name + '      ' + students[i].getSum() + '      ' + students[i].getAverage() + '\n';*/
-            output += students[i].toString();
-        };
-        
-        alert(output);
-        
+        /*        for (var k in students) {
+                    // 총점을 구하는 메서드 정의, 추가
+                    students[k].getSum = function() {
+                        return this.kor + this.meth + this.eng;
+                    };
+                    // 평균을 구하는 메서드 정의, 추가
+                    students[k].getAverage = function() {
+                        return this.getSum() / 3;
+                    };
+                };*/
+
+
         // 생성자 함수 정의
         // 함수의 이름(식별자)의 첫글자 대문자로 쓴다.
-        function Student(sname,k,e,m) {
-            
-            this.name=sname; //이름
-            this.kor=k; //국어점수
-            this.eng=e; //영어점수
-            this.meth=m; //수학점수
-            
-/*            // 총점 계산 함수(메서드)
-            this.getSum = function() {
-                return this.kor+this.eng+this.meth;
-            };
-            // 평균 계산 함수(메서드)
-            this.getAvg = function() {
-                return this.getSum()/3;
-            };
-            // 결과 출력
-            this.toString = function(){
-                return this.name+'      '+this.getSum()+'      '+this.getAvg()+'\n';
-            };*/
-    
-        
-        
-        
-            // 프로토타입
-            // 공통으로 사용되는 메서드를 정의
-            Student.prototype.getSum = function(){
-                return this.kor+this.eng+this.meth;
-            };
-        
-            Student.prototype.getAvg = function(){
-                return this.getSum()/3;
-            };
-        
-            Student.prototype.toString = function(){
-                return this.name+'      '+this.getSum()+'      '+this.getAvg()+'\n';
-            };
+        function Student(sname, k, e, m) {
+
+            this.name = sname; //이름
+            this.kor = k; //국어점수
+            this.eng = e; //영어점수
+            this.meth = m; //수학점수
+
+            /*            // 총점 계산 함수(메서드)
+                        this.getSum = function() {
+                            return this.kor+this.eng+this.meth;
+                        };
+                        // 평균 계산 함수(메서드)
+                        this.getAvg = function() {
+                            return this.getSum()/3;
+                        };
+                        // 결과 출력
+                        this.toString = function(){
+                            return this.name+'      '+this.getSum()+'      '+this.getAvg()+'\n';
+                        };*/
+
         }
+
+
+        // 프로토타입
+        // 공통으로 사용되는 메서드를 정의
+        Student.prototype.getSum = function() {
+            return this.kor + this.eng + this.meth;
+        };
+
+        Student.prototype.getAvg = function() {
+            return this.getSum() / 3;
+        };
+
+        Student.prototype.toString = function() {
+            return this.name + '      ' + this.getSum() + '      ' + this.getAvg() + '\n';
+        };
+
+
+        var output = '이름          총점     평균\n';
+        for (var i = 0; i < students.length; i++) {
+            /*            output += students[i].name + '      ' + students[i].getSum() + '      ' + students[i].getAverage() + '\n';*/
+            output += students[i].toString();
+        };
+
+        alert(output);
+
+        students.sort(function(left, right) {
+            return right.getSum() - left.getSum();
+        });
+        
+        
         
     </script>
 </head>
@@ -190,8 +192,8 @@
 
 
 
-<bdoy>
+<body>
 
 
 
-</bdoy></html>
+</body></html>
