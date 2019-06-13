@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-
-
+ 
+ 
 <html>
     
     <head>
@@ -19,7 +19,6 @@
         /* 메인랩 정의 */
         #main_wrap {
             margin: 0px auto;
-            background-color: #F5F6F7;
             width: 600px;
         }
 
@@ -29,7 +28,7 @@
         }
 
         #header>img {
-            margin-left: 175px;
+            margin-left: 165px;
             margin-top: 30px;
         }
 
@@ -37,15 +36,15 @@
             float: right;
             width: 100px;
             height: 25px;
+            background-color: white;
         }
-        /* 헤더 끝 */
 
+        /* 헤더 끝 */
         /* 메인영역 */
         #main h4 {
             clear: both;
             font-size: 14px;
             color: #333333;
-            font-family: "돋움", Dotum;
             text-decoration: underline;
         }
 
@@ -53,25 +52,23 @@
         #sub {
             color: #333333;
         }
+
         #sub h4 {
             font-size: 14px;
             color: #333333;
-            font-family: "돋움", Dotum;
         }
-        
-        .pil {
+
+        span {
             color: #08A600;
             font-weight: normal;
             font-size: 13px;
         }
-        
+
         .sun {
             color: #8E8E8E;
             font-weight: normal;
             font-size: 13px;
         }
-        
-        
 
         input[type=checkbox] {
             display: none;
@@ -121,13 +118,10 @@
 
         .description>p {
             font-size: 12px;
-            font-family: "돋움", Dotum;
             color: #333333;
             margin: 5px 0;
-
         }
 
-        
         /* 비동의, 동의 박스 */
         #last_agree {
             margin-left: 55px;
@@ -138,7 +132,6 @@
             width: 230px;
             height: 60px;
             font-size: 20px;
-            font-family: "돋움", Dotum;
             color: white;
             background-color: #8E8E8E;
         }
@@ -151,7 +144,7 @@
             color: white;
             background-color: #08A600;
         }
-        
+
         /* 푸터 */
         #footer {
             margin-top: 20px;
@@ -159,11 +152,61 @@
             color: #8E8E8E;
             font-size: 13px;
         }
+        
+        #msg {
+            color: red;
+            font-size: 12px;
+            font-weight: 400;
+            margin-left: 55px;
+            margin-top: 10px;
+        }
     </style>
 
 
 
-    <script></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            
+            // mainbox 클릭 시 이벤트 정의
+            // 1. mainbox에 checked 속성을 추가
+            // 2. mainbox 가 true 면 subbox 를 모두 true로 변경
+            // 3. mainbox 가 false 면 subbox 를 모두 false로 변경
+            $('#mainbox').click(function() {
+
+                var chk = $('#mainbox').prop('checked');
+
+                if (chk) {
+                    $('.subbox').prop('checked', true);
+                } else {
+                    $('.subbox').prop('checked', false);
+                }
+            });
+
+            // 동의 버튼 클릭 시 이벤트 정의
+            // 1. sub 박스 중 필수 동의 항목에 checked 속성 추가
+            // 2. sub1,2 가 false 이면 메시지 발생하여 html에 추가
+            // 3. sub1,2 가 true 이면 회원가입 페이지로 이동
+            $('#agree').click(function() {
+
+                var sub1 = $('#subbox1').prop('checked');
+                var sub2 = $('#subbox2').prop('checked');
+
+                if (!(sub1 && sub2)) {
+                    var msg = '네이버 이용약관과 개인정보 수집 및 이용에 대한 안내 모두 동의해주세요.'
+                    $('#msg').html(msg);
+                } else {
+                    location.href = 'naver_join.html';
+                }
+
+            });
+
+
+
+        });
+    </script>
 
 </head>
 
@@ -189,7 +232,7 @@
 
             <div id="sub">
                 <input type="checkbox" id="subbox1" class="subbox"><label for="subbox1">
-                    <h4>네이버 이용약관 동의<span class="pil">(필수)</span></h4>
+                    <h4>네이버 이용약관 동의<span>(필수)</span></h4>
                 </label>
                 <div class="description">
                     <h5>여러분을 환영합니다.</h5>
@@ -197,7 +240,7 @@
                 </div>
 
                 <input type="checkbox" id="subbox2" class="subbox"><label for="subbox2">
-                    <h4>개인정보 수집 및 이용에 대한 안내<span class="pil">(필수)</span></h4>
+                    <h4>개인정보 수집 및 이용에 대한 안내<span>(필수)</span></h4>
                 </label>
                 <div class="description">
                     <p>정보통신망법 규정에 따라 네이버에 회원가입 신청하시는 분께 수집하는 개인정보의 항목, 개인정보의 수집 및 이용목적, 개인정보의 보유 및 이용기간을 안내 드리오니 자세히 읽은 후 동의하여 주시기 바랍니다.</p>
@@ -215,6 +258,7 @@
                 <input type="checkbox" id="subbox4" class="subbox"><label for="subbox4">
                     <h4>이벤트 등 프로모션 알림 메일 수신<span class="sun">(선택)</span></h4>
                 </label>
+                <h6 id=msg> </h6>
             </div>
 
 
@@ -226,9 +270,9 @@
         </div>
 
         <div id="footer">
-            <p>회사, 동아리 등 단체에서 사용할 ID가 필요하세요? 단체 회원 가입  <br> <br>
-            이용약관 | 개인정보처리방침 | 책임의 한계와 법적고지 | 회원정보 | 고객센터 <br> <br>
-            © NAVER Corp.</p>
+            <p>회사, 동아리 등 단체에서 사용할 ID가 필요하세요? 단체 회원 가입 <br> <br>
+                이용약관 | 개인정보처리방침 | 책임의 한계와 법적고지 | 회원정보 | 고객센터 <br> <br>
+                © NAVER Corp.</p>
         </div>
 
 
