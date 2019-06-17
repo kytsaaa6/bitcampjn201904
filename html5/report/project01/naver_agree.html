@@ -175,7 +175,7 @@
             // 1. mainbox에 checked 속성을 추가
             // 2. mainbox 가 true 면 subbox 를 모두 true로 변경
             // 3. mainbox 가 false 면 subbox 를 모두 false로 변경
-            $('#mainbox').click(function() {
+            $('#mainbox').change(function() {
 
                 var chk = $('#mainbox').prop('checked');
 
@@ -190,7 +190,7 @@
             // 1. 각 subbox에 checked 속성을 추가
             // 2. subbox가 하나라도 false 일 경우 mainbox를 체크 해제
             // 3. subbox가 모두 true 일 경우 mainbox도 체크
-            $('.subbox').click(function() {
+            $('.subbox').change(function() {
                 
                 var sub1 = $('#subbox1').prop('checked');
                 var sub2 = $('#subbox2').prop('checked');

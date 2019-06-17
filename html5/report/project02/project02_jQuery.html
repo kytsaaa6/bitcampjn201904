@@ -184,13 +184,10 @@
 <script>
     // Member 객체들을 저장하기 위한 배열 생성
     //var members = [];
-
     var members;
     //alert(localStorage.getItem('members'))
-
     // 저장소 변수 선언
     // localStorage 에서 데이터 유무에 따라 배열 선언
-
     // 회원 데이터 저장 목적으로 하는 생성자함수 정의
     // id: 회원의 아이디, 이메일 주소
     // pw: 회원의 비밀번호
@@ -201,41 +198,29 @@
         this.userPw = pw;
         this.userName = name;
     }
-
     Member.prototype.makeHtml = function(i) {
-
         var nHtml = '';
         nHtml += '<tr>\n';
-        nHtml += '  <td>' + i + '</td>\n';
-        nHtml += '  <td>' + this.userId + '</td>\n';
-        nHtml += '  <td>' + this.userPw + '</td>\n';
-        nHtml += '  <td>' + this.userName + '</td>\n';
-        nHtml += '  <td><a onclick="editMember(' + i + ');">수정</a> | <a onclick="delMember(' + i + ');">삭제</a></td>\n';
+        nHtml += ' <td>' + i + '</td>\n';
+        nHtml += ' <td>' + this.userId + '</td>\n';
+        nHtml += ' <td>' + this.userPw + '</td>\n';
+        nHtml += ' <td>' + this.userName + '</td>\n';
+        nHtml += ' <td><a onclick="editMember(' + i + ');">수정</a> | <a onclick="delMember(' + i + ');">삭제</a></td>\n';
         nHtml += '</tr>\n';
-
         return nHtml;
-
     };
-
     Member.prototype.showData = function() {
         alert('아이디: ' + this.userId + '\n비밀번호: ' + this.userPw + '\n이름: ' + this.userName)
     };
-
-
-
     Member.prototype.toString = function() {
         var str = '<h4>아이디: ' + this.userId + '\n비밀번호: ' + this.userPw + '\n이름: ' + this.userName + '</h4>\n';
         return str;
     };
-
     $(document).ready(function() {
-
-
         // members 가 비어있을 경우 배열 생성
         if (localStorage.getItem('members') == null) {
             // 최초 실행
             members = [];
-
             // localStorage 에 배열을 저장
             localStorage.setItem('members', JSON.stringify(members));
         } else {
@@ -243,56 +228,44 @@
             members = JSON.parse(localStorage.getItem('members'));
             setListTable();
         }
-
-
-
         // regForm 문서객체 만들기
-        var regForm = $('#regForm').children();
-
         // 회원입력 폼의 submit 재 정의
-        regForm.onsubmit = function() {
-
+        $('#regForm').submit(function() {
             // 사용자 입력 데이터 input 캐스팅
-            var uId = document.getElementById('userId');
-            var uPw = document.getElementById('userPw');
-            var uName = document.getElementById('userName');
-
-            if (uId.value.length < 1) {
+            var uId = $('#userId').val();
+            var uPw = $('#userPw').val();
+            var uName = $('#userName').val();
+            if (uId.length < 1) {
                 alert('아이디를 입력해주세요.');
-                uId.focus();
+                $('#userId').focus();
                 return false;
             }
-            
-            if (uPw.value.length < 1) {
+
+            if (uPw.length < 1) {
                 alert('패스워드를 입력해주세요.');
-                uPw.focus();
+                $('#userPw').focus();
                 return false;
             }
-            
-            if (uName.value.length < 1) {
+
+            if (uName.length < 1) {
                 alert('이름을 입력해주세요.');
-                uName.focus();
+                $('#userName').focus();
                 return false;
             }
-
             // 새로운 데이터로 객체 생성
-            var newMember = new Member(uId.value, uPw.value, uName.value);
-
+            var newMember = new Member(uId, uPw, uName);
             //newMember.showData();
-
             members.push(newMember);
-
             localStorage.setItem('members', JSON.stringify(members));
-
             alert('정상적으로 입력되었습니다.');
 
             setListTable();
 
-            regForm.reset();
-
+            $(this).each(function() {
+                this.reset();
+            });
             return false;
-
-        };
+        });
 
         // 회원수정 폼의 submit 재 정의
         var editForm = document.getElementById('editForm');
@@ -332,9 +305,9 @@
             // 이름 수정
             members[editIndex.value].userName = editName.value;
 
-            
-            localStorage.setItem('members',JSON.stringify(members));
-            
+
+            localStorage.setItem('members', JSON.stringify(members));
+
             alert('수정되었습니다.');
 
             setListTable();
@@ -357,17 +330,17 @@
 
     // members 배열의 요소들을 출력기능
     function setListTable() {
-        var newHtml = '<tr>\n    <td>순번(index)</td>\n    <td>아이디</td>\n    <td>비밀번호</td>\n    <td>이름</td>\n    <td>관리</td>\n</tr>\n';
-        for (var i=0; i<members.length; i++) {
+        var newHtml = '<tr>\n <td>순번(index)</td>\n <td>아이디</td>\n <td>비밀번호</td>\n <td>이름</td>\n <td>관리</td>\n</tr>\n';
+        for (var i = 0; i < members.length; i++) {
             //newHtml += members[i].toString();
             //newHtml += members[i].makeHtml(i);
-            
+
             newHtml += '<tr>\n';
-            newHtml += '  <td>' + i + '</td>\n';
-            newHtml += '  <td>' + members[i].userId + '</td>\n';
-            newHtml += '  <td>' + members[i].userPw + '</td>\n';
-            newHtml += '  <td>' + members[i].userName + '</td>\n';
-            newHtml += '  <td><a onclick="editMember(' + i + ');">수정</a> | <a onclick="delMember(' + i + ');">삭제</a></td>\n';
+            newHtml += ' <td>' + i + '</td>\n';
+            newHtml += ' <td>' + members[i].userId + '</td>\n';
+            newHtml += ' <td>' + members[i].userPw + '</td>\n';
+            newHtml += ' <td>' + members[i].userName + '</td>\n';
+            newHtml += ' <td><a onclick="editMember(' + i + ');">수정</a> | <a onclick="delMember(' + i + ');">삭제</a></td>\n';
             newHtml += '</tr>\n';
 
         }
@@ -388,7 +361,7 @@
         var eName = document.getElementById('editName');
         var eIndex = document.getElementById('editIndex');
 
-    
+
         // 기존 데이터를 캐스팅한 객체 value 값을 대입
         eId.value = members[index].userId;
         ePw.value = members[index].userPw;
@@ -401,15 +374,15 @@
         //alert(index + '번 요소 삭제');
 
         var delChk = confirm('삭제하시겠습니까?');
-        
+
         if (delChk) {
             // 삭제 -> 배열에서 요소 삭제
             members.splice(index, 1);
-            
+
             localStorage.setItem('members', JSON.stringify(members));
-            
+
             alert(index + '번이 삭제되었습니다.');
-            
+
             setListTable();
         }
 
