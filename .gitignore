@@ -100,3 +100,6 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/windows,eclipse,java-web
+
+# Mac
+.DS_Store
