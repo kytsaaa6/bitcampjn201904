@@ -177,13 +177,6 @@
             font-weight: 400;
             margin-top: 10px;
         }
-
-        .chkmsg {
-            color: #08A600;
-            font-size: 12px;
-            font-weight: 400;
-            margin-top: 10px;
-        }
     </style>
 
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -192,7 +185,6 @@
         $(document).ready(function() {
 
 
-            var pwMsg = '8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.';
             var pwMsg2 = '비밀번호가 일치하지 않습니다.';
             var nameMsg = '한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용 불가)';
             var birMsg = '태어난 년도 4자리를 정확하게 입력하세요.';
@@ -202,59 +194,76 @@
             var pinputMsg = '인증이 필요합니다.';
 
             var pwChkMsg = '안전';
-
+            var reqMsg = '필수정보 입니다.';
 
             $('#uId').blur(function() {
-                var uId = $('#uId').val();
+                var uId = $(this).val();
                 var idReg = /[a-z0-9_-]{5,20}/;
-                var idMsg = '5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.';
-                var idChkMsg = '멋진 아이디네요!';
-                if (!idReg.test(uId)) {
-                    $('#idMsg').empty();
-                    $('#idMsg').append(idMsg).css('color', 'red');
+                var msgField = $('#idMsg');
+                var Msg = '5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.';
+                var ChkMsg = '멋진 아이디네요!';
+
+                if (uId.length < 1) {
+                    msgField.empty();
+                    msgField.append(reqMsg).css('color', 'red');
+                } else if (!idReg.test(uId)) {
+                    msgField.empty();
+                    msgField.append(Msg).css('color', 'red');
 
                 } else {
-                    $('#idMsg').empty();
-                    $('#idMsg').append(idChkMsg).css('color', '#08A600');
+                    msgField.empty();
+                    msgField.append(ChkMsg).css('color', '#08A600');
                 }
 
             });
 
             $('#uPw').blur(function() {
-                var uPw = $('#uPw').val();
-                var pwReg1 = /[0-9]/;
-                var pwReg2 = /[a-zA-Z]/;
-                var pwReg3 = /[~!@#$%^&*()_+|<>?:{}]/;
+                var uPw = $(this).val();
+                var pwReg = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,16}$/;
+                var msgField = $('#pwMsg');
+                var Msg = '8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.';
+                var ChkMsg = '안전';
 
-                if (!pwReg1.test(uPw) || !pwReg2.test(uPw) || !pwReg3.test(uPw) || uPw.length < 8) {
-                    $('#pwMsg').html(pwMsg);
+                if (uPw.length < 1) {
+                    msgField.empty();
+                    msgField.append(reqMsg).css('color', 'red');
+                } else if (!pwReg.test(uPw)) {
+                    msgField.empty();
+                    msgField.append(Msg).css('color', 'red');
                 } else {
-                    $('#pwChkMsg').html(pwChkMsg);
+                    msgField.empty();
+                    msgField.append(ChkMsg).css('color', '#08A600');
                 }
             });
 
             $('#uPw2').blur(function() {
-                var uPw1 = $('#uPw1').val();
-                var uPw2 = $('#uPw2').val();
+                var uPw1 = $('#uPw').val();
+                var uPw2 = $(this).val();
+                var msgField = $('#pwMsg2');
+                var Msg = '비밀번호가 일치하지 않습니다.';
+                var ChkMsg = '일치';
 
-                if (uPw1 != uPw2) {
-                    var pwMsg2 = '비밀번호가 일치하지 않습니다.';
-                    $('#pwMsg2').html(pwMsg2);
+                if (uPw2.length < 1) {
+                    msgField.empty();
+                    msgField.append(reqMsg).css('color', 'red');
+                } else if (uPw1 != uPw2) {
+                    msgField.empty();
+                    msgField.append(Msg).css('color', 'red');
                 } else {
-                    $('#pwMsg2').remove('#pwMsg2');
+                    msgField.empty();
+                    msgField.append(ChkMsg).css('color', '#08A600');
                 }
             });
-
 
             $('#uName').blur(function() {
 
             });
 
-            $('#uBirth').blur(function() {
+            $('#uBir').blur(function() {
 
             });
 
-            $('#uGender').blur(function() {
+            $('#gender').blur(function() {
 
             });
 
@@ -296,7 +305,6 @@
                             <label for="uPw">비밀번호</label> <br>
                             <input type="password" id="uPw" class="basic">
                             <h6 id="pwMsg" class="msg"></h6>
-                            <h6 id="pwMsg3" class="chkmsg"></h6>
                         </td>
                     </tr>
                     <tr>
