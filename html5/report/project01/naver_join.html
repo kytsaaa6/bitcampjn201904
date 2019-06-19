@@ -13,64 +13,53 @@
             font-family: "돋움", Dotum;
             background-color: #F5F6F7;
         }
-
         *::placeholder {
             font-size: 14px;
         }
-
         ul {
             list-style: none;
         }
-
         input {
             background-color: white;
             font-size: 18px;
             border: 1px solid #DDD;
         }
-
         select {
             background-color: white;
             border: 1px solid #DDD;
             font-size: 14px;
             padding: 10px;
         }
-
         /* 초기설정 end */
         /* 메인랩 */
         #main_wrap {
             margin: 0px auto;
             width: 600px;
         }
-
         /* 로고 위치 */
         #header {
             margin-top: 20px;
         }
-
         #header>img {
             margin-left: 175px;
             margin-top: 30px;
         }
-
         /* 폼 너비,위치 */
         #joinForm {
             width: 500px;
             margin-top: 30px;
             margin-left: 75px;
         }
-
         /* 행간 상하 공간 */
         #joinForm td {
             display: block;
             margin: 5px 0;
         }
-
         /* label 폰트 속성 */
         #joinForm label {
             font-weight: bold;
             font-size: 15px;
         }
-
         /* 기본 input 영역 속성 */
         .basic {
             display: block;
@@ -80,7 +69,6 @@
             padding: 10px;
             margin: 5px 0;
         }
-
         /* ID input 영역 속성 */
         /* 생일 영역 속성 */
         #uBir>li>input {
@@ -91,7 +79,6 @@
             height: 25px;
             margin: 5px 0;
         }
-
         #uBir>li>select {
             float: left;
             width: 142px;
@@ -100,12 +87,10 @@
             margin: 5px 10px;
             overflow: hidden;
         }
-
         /* input 홀더 속성 */
         #uId::placeholder {
             text-align: right;
         }
-
         /* 성별 속성 */
         #gender {
             display: block;
@@ -113,7 +98,6 @@
             height: 45px;
             margin: 5px 0;
         }
-
         /* 휴대폰 국번 속성 */
         #uPhone {
             display: block;
@@ -123,14 +107,12 @@
             padding: 10px;
             margin: 5px 0;
         }
-
         /* 휴대폰 인증 입력 속성 */
         #cert {
             float: left;
             width: 450px;
             display: block;
         }
-
         #cert>li #cInput {
             float: left;
             width: 290px;
@@ -138,7 +120,6 @@
             height: 22px;
             margin-right: 10px;
         }
-
         #cert>li #cBtn {
             width: 128px;
             height: 45px;
@@ -146,12 +127,10 @@
             color: white;
             background-color: #08A600;
         }
-
         #certInput {
             background-color: #F5F6F7;
             ;
         }
-
         /* 가입완료 버튼 속성 */
         #joinForm #uJoin {
             clear: both;
@@ -162,7 +141,6 @@
             color: white;
             background-color: #08A600;
         }
-
         /* 푸터 */
         #footer {
             margin-top: 20px;
@@ -170,7 +148,6 @@
             color: #8E8E8E;
             font-size: 13px;
         }
-
         .msg {
             color: red;
             font-size: 12px;
@@ -183,99 +160,157 @@
 
     <script>
         $(document).ready(function() {
-
-
-            var pwMsg2 = '비밀번호가 일치하지 않습니다.';
-            var nameMsg = '한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용 불가)';
-            var birMsg = '태어난 년도 4자리를 정확하게 입력하세요.';
-            var genMsg = '성별을 선택해주세요.';
-            var phoneMsg = '형식에 맞지 않는 번호입니다.';
-            var pbtnMsg = '인증번호를 발송했습니다.(유효시간 30분)<br>인증번호가 오지 않으면 입력하신 정보가 정확한지 확인하여 주세요.<br>이미 가입된 번호이거나, 가상전화번호는 인증번호를 받을 수 없습니다.';
-            var pinputMsg = '인증이 필요합니다.';
-
-            var pwChkMsg = '안전';
+            
+            
+            var restric = {
+                uId = 0
+            };
+            
+            
+            
+            
+            
+            
+            
             var reqMsg = '필수정보 입니다.';
-
             $('#uId').blur(function() {
                 var uId = $(this).val();
                 var idReg = /[a-z0-9_-]{5,20}/;
                 var msgField = $('#idMsg');
                 var Msg = '5~20자의 영문 소문자, 숫자와 특수기호(_),(-)만 사용 가능합니다.';
                 var ChkMsg = '멋진 아이디네요!';
-
                 if (uId.length < 1) {
-                    msgField.empty();
-                    msgField.append(reqMsg).css('color', 'red');
+                    msgField.empty().append(reqMsg).css('color', 'red');
+                    return false;
                 } else if (!idReg.test(uId)) {
-                    msgField.empty();
-                    msgField.append(Msg).css('color', 'red');
-
+                    msgField.empty().append(Msg).css('color', 'red');
+                    return false;
                 } else {
-                    msgField.empty();
-                    msgField.append(ChkMsg).css('color', '#08A600');
+                    msgField.empty().append(ChkMsg).css('color', '#08A600');
+                    return 1;
                 }
-
             });
-
             $('#uPw').blur(function() {
                 var uPw = $(this).val();
-                var pwReg = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{8,16}$/;
+                var pwReg = /^((?=.*[a-zA-Z])|(?=.*\d)|(?=.*\W)).{8,16}$/;
                 var msgField = $('#pwMsg');
                 var Msg = '8~16자 영문 대 소문자, 숫자, 특수문자를 사용하세요.';
                 var ChkMsg = '안전';
-
                 if (uPw.length < 1) {
-                    msgField.empty();
-                    msgField.append(reqMsg).css('color', 'red');
+                    msgField.empty().append(reqMsg).css('color', 'red');
                 } else if (!pwReg.test(uPw)) {
-                    msgField.empty();
-                    msgField.append(Msg).css('color', 'red');
+                    msgField.empty().append(Msg).css('color', 'red');
                 } else {
-                    msgField.empty();
-                    msgField.append(ChkMsg).css('color', '#08A600');
+                    msgField.empty().append(ChkMsg).css('color', '#08A600');
                 }
             });
-
             $('#uPw2').blur(function() {
                 var uPw1 = $('#uPw').val();
                 var uPw2 = $(this).val();
                 var msgField = $('#pwMsg2');
                 var Msg = '비밀번호가 일치하지 않습니다.';
                 var ChkMsg = '일치';
-
                 if (uPw2.length < 1) {
-                    msgField.empty();
-                    msgField.append(reqMsg).css('color', 'red');
+                    msgField.empty().append(reqMsg).css('color', 'red');
                 } else if (uPw1 != uPw2) {
-                    msgField.empty();
-                    msgField.append(Msg).css('color', 'red');
+                    msgField.empty().append(Msg).css('color', 'red');
                 } else {
-                    msgField.empty();
-                    msgField.append(ChkMsg).css('color', '#08A600');
+                    msgField.empty().append(ChkMsg).css('color', '#08A600');
                 }
             });
-
             $('#uName').blur(function() {
-
+                var uName = $(this).val();
+                var nameReg = /[a-zA-Z가-힣]{2,20}/;
+                var msgField = $('#nameMsg');
+                var Msg = '한글과 영문 대 소문자를 사용하세요. (특수기호, 공백 사용 불가)';
+                if (uName.length < 1) {
+                    msgField.empty().append(reqMsg).css('color', 'red');
+                } else if (!nameReg.test(uName)) {
+                    msgField.empty().append(Msg).css('color', 'red');
+                } else {
+                    msgField.empty();
+                }
             });
-
-            $('#uBir').blur(function() {
-
+            $('#year').blur(function() {
+                var year = $(this).val();
+                var yearReg = /^(19[0-9][0-9]|20[0-1][0-9])$/;
+                var msgField = $('#birMsg');
+                var Msg = '태어난 년도 4자리를 정확하게 입력하세요.';
+                if (year.length < 1 || !yearReg.test(year)) {
+                    msgField.empty().append(Msg).css('color', 'red');
+                } else {
+                    msgField.empty();
+                } 
             });
-
-            $('#gender').blur(function() {
-
+            
+            $('#month').change(function() {
+                var day = $(this).val();
+                var msgField = $('#birMsg');
+                var Msg = '태어난 월(달)을 선택하세요.';
+                if (day == '월') {
+                    msgField.empty().append(Msg).css('color', 'red');
+                } else {
+                    msgField.empty();
+                } 
             });
-
+            $('#day').blur(function() {
+                var day = $(this).val();
+                var dayReg = /^(0[1-9]|[12][0-9]|3[0-1])$/;
+                var msgField = $('#birMsg');
+                var Msg = '태어난 일(날짜) 2자리를 정확하게 입력하세요.';
+                if (day.length < 1 || !dayReg.test(day)) {
+                    msgField.empty().append(Msg).css('color', 'red');
+                } else {
+                    msgField.empty();
+                } 
+            });
+            
+            $('#gender').change(function() {
+                var gender = $(this).val();
+                var msgField = $('#gMsg');
+                var Msg = '성별을 선택하세요.';
+                
+                if (gender == '성별') {
+                    msgField.empty().append(Msg).css('color', 'red');
+                } else {
+                    msgField.empty();
+                } 
+                
+            });
             $('#uEmail').blur(function() {
-
+                var uEmail = $('#uEmail').val();
+                var emailReg = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+                var msgField = $('#emailMsg');
+                var Msg = '이메일 주소를 다시 확인해주세요.';
+                if (uEmail.length < 1) {
+                    return;
+                } else if (!emailReg.test(uEmail)) {
+                    msgField.empty().append(Msg).css('color', 'red');
+                } else {
+                    msgField.empty();
+                }
             });
-
-            $('#uPhone').blur(function() {
-
+            $('#cBtn').click(function() {
+                var uPhone = $('#cInput').val();
+                var phoneReg = /^\d{3}-\d{3,4}-\d{4}$/;
+                var msgField = $('#pMsg');
+                var Msg = '형식에 맞지 않는 번호입니다.';
+                if (uPhone.length < 1) {
+                    msgField.empty().append(reqMsg).css('color', 'red');
+                } else if (!phoneReg.test(uPhone)) {
+                    msgField.empty().append(Msg).css('color', 'red');
+                } else {
+                    msgField.empty();
+                    
+                }
             });
-
-
+            $('#uJoin').click(function(1) {
+                
+                alert('1');
+                
+            });
+            
+            
         });
     </script>
 
@@ -316,7 +351,9 @@
                     </tr>
                     <tr>
                         <td><label for="uName">이름</label> <br>
-                            <input type="text" id="uName" class="basic"></td>
+                            <input type="text" id="uName" class="basic">
+                            <h6 id="nameMsg" class="msg"></h6>
+                        </td>
                     </tr>
                     <tr>
                         <td><label for="uBir">생년월일</label> <br>
@@ -339,6 +376,7 @@
                                     </select>
                                 </li>
                                 <li><input type="text" id="day" placeholder="일"></li>
+                                <h6 id="birMsg" class="msg"></h6>
                             </ul>
                         </td>
                     </tr>
@@ -349,10 +387,14 @@
                                 <option>남자</option>
                                 <option>여자</option>
                             </select>
+                            <h6 id="gMsg" class="msg"></h6>
+                        </td>
                     </tr>
                     <tr>
                         <td><label for="uEmail">본인확인 이메일</label> <br>
-                            <input type="text" id="uEmail" class="basic" placeholder="선택입력"></td>
+                            <input type="text" id="uEmail" class="basic" placeholder="선택입력">
+                            <h6 id="emailMsg" class="msg"></h6>
+                        </td>
                     </tr>
                     <tr>
                         <td><label for="uPhone">휴대전화</label> <br>
@@ -363,11 +405,13 @@
                                 <li><input type="text" class="number" id="cInput" placeholder="전화번호 입력"></li>
                                 <li><input type="button" class="number" id="cBtn" value="인증번호 받기"></li>
                                 <li><input type="text" class="basic" id="certInput" placeholder="인증번호를 입력하세요"></li>
+                                <h6 id="pMsg" class="msg"></h6>
                             </ul>
                         </td>
                     </tr>
                     <tr>
-                        <td><input type="button" id="uJoin" value="가입하기"></td>
+                        <td><input type="submit" id="uJoin" value="가입하기">
+                        </td>
                     </tr>
 
                 </table>
