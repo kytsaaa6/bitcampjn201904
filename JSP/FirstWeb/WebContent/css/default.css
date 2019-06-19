@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic|Roboto|Sunflower:300&display=swap');
+
+
+/* default 여백 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    padding: 0;
+}
+
+body {
+    font-family: 'Nanum Gothic', sans-serif;
+    background-color: beige;
+}
+
+
+/* 메인블럭 width 값 960~980, height 지정 X */
+#main_wrap {
+    width: 938px;
+    padding: 10px;
+
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    box-shadow: 0 3px 3px #AAA;
+
+    margin: 40px auto;
+
+}
+
+/* header */
+#header {
+    padding: 20px;
+}
+
+#header > h1 {
+    font-family: "Jua";
+    margin-bottom: 5px;
+}
+
+#header > h4 {
+    font-weight: normal;
+}
+
+/* 네이게이션 */
+#nav {
+    height: 35px;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+}
+
+#menu {
+    float: left;
+}
+
+#search {
+    float: right;
+    height: 35px;
+    line-height: 35px;
+    /*            vertical-align: middle;*/
+}
+
+#menu > ul {
+    list-style: none;
+}
+
+#menu > ul > li {
+    height: 35px;
+    line-height: 35px;
+    /*            padding: 0 20px;*/
+    float: left;
+}
+
+#menu > ul > li > a {
+    display: block;
+    line-height: 35px;
+    text-decoration: none;
+    color: darkcyan;
+    font-weight: bold;
+    padding: 0 20px;
+}
+
+#menu > ul > li:hover {
+    background-color: beige;
+}
+
+#menu > ul > li > a:hover {
+    background-color: beige;
+    color: aqua;
+}
+
+#search > input[type=text] {
+    height: 20px;
+    border-radius: 10px 0 0 10px;
+    border: 1px solid #DDD;
+    vertical-align: middle;
+    padding: 0 10px;
+}
+
+#search > input[type=button] {
+    height: 22px;
+    margin-top: 0px;
+    margin-left: -4px;
+    border-radius: 0px 12px 12px 0;
+    vertical-align: middle;
+    padding: 0 10px;
+}
+
+/* contents */
+#contents {
+    overflow: hidden;
+    padding: 5px;
+}
+
+#content {
+    float: left;
+    width: 700px;
+
+}
+
+#aside {
+    float: right;
+    width: 198px;
+    height: 200px;
+
+    padding: 15px;
+}
+
+#aside > ul {
+    list-style: none;
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 30px;
+}
+
+#aside > ul > li {
+    height: 30px;
+    line-height: 30px;
+}
+
+#content > article {
+    margin: 25px 0;
+    border-bottom: 1px solid #DDD;
+}
+
+#content > article > .img {
+    width: 300px;
+    margin-left: 5px;
+}
+
+#content > article > .date {
+    display: block;
+    padding: 0 5px;
+
+}
+
+#content > article > .title {
+    padding: 20px 5px;
+}
+
+#content > article > p {
+    padding: 5px 5px;
+    line-height: 160%;
+    font-size: 15px;
+}
+
+/* footer */
+#footer {
+    text-align: center;
+}

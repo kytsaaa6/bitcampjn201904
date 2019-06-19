@@ -16,14 +16,14 @@ public class FirstWebServlet extends HttpServlet {
 	
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */							// »ç¿ëÀÚÀÇ ¿äÃ»Á¤º¸¸¦ ´ã°íÀÖ´Ù. ¸Ş¼­µå ÇüÅÂ
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		response.setContentType("text/html; charset=utf-8");
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html><head><title></title></head>");
-		out.println("<body><h1>½Ã°£ : "+ new Date());
+		out.println("<body><h1>ì‹œê°„ : "+ new Date());
 		out.println("</h1></body></html>");
 	}
 
