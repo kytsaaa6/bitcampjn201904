@@ -1,0 +1,171 @@
+        /* 초기설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "돋움", Dotum;
+            background-color: #F5F6F7;
+        }
+
+        *::placeholder {
+            font-size: 14px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        input {
+            background-color: white;
+            font-size: 18px;
+            border: 1px solid #DDD;
+        }
+
+        select {
+            background-color: white;
+            border: 1px solid #DDD;
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        /* 초기설정 end */
+        /* 메인랩 */
+        #main_wrap {
+            margin: 0px auto;
+            width: 600px;
+        }
+
+        /* 로고 위치 */
+        #header {
+            margin-top: 20px;
+        }
+
+        #header > img {
+            margin-left: 175px;
+            margin-top: 30px;
+        }
+
+        /* 폼 너비,위치 */
+        #joinForm {
+            width: 500px;
+            margin-top: 30px;
+            margin-left: 75px;
+        }
+
+        /* 행간 상하 공간 */
+        #joinForm td {
+            display: block;
+            margin: 5px 0;
+        }
+
+        /* label 폰트 속성 */
+        #joinForm label {
+            font-weight: bold;
+            font-size: 15px;
+        }
+
+        /* 기본 input 영역 속성 */
+        .basic {
+            display: block;
+            width: 430px;
+            height: 25px;
+            font-size: 18px;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        /* ID input 영역 속성 */
+        /* 생일 영역 속성 */
+        #uBir > li > input {
+            display: block;
+            float: left;
+            padding: 10px;
+            width: 122px;
+            height: 25px;
+            margin: 5px 0;
+        }
+
+        #uBir > li > select {
+            float: left;
+            width: 142px;
+            height: 47px;
+            background-color: white;
+            margin: 5px 10px;
+            overflow: hidden;
+        }
+
+        /* input 홀더 속성 */
+        #uId::placeholder {
+            text-align: right;
+        }
+
+        /* 성별 속성 */
+        #gender {
+            display: block;
+            width: 450px;
+            height: 45px;
+            margin: 5px 0;
+        }
+
+        /* 휴대폰 국번 속성 */
+        #uPhone {
+            display: block;
+            width: 450px;
+            height: 45px;
+            font-size: 14px;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+        /* 휴대폰 인증 입력 속성 */
+        #cert {
+            float: left;
+            width: 450px;
+            display: block;
+        }
+
+        #cert > li #cInput {
+            float: left;
+            width: 290px;
+            padding: 10px;
+            height: 22px;
+            margin-right: 10px;
+        }
+
+        #cert > li #cBtn {
+            width: 128px;
+            height: 45px;
+            font-size: 14px;
+            color: white;
+            background-color: #08A600;
+        }
+
+        #certInput {
+            background-color: #F5F6F7;
+            ;
+        }
+
+        /* 가입완료 버튼 속성 */
+        #joinForm #uJoin {
+            clear: both;
+            width: 450px;
+            height: 65px;
+            margin-top: 30px;
+            font-size: 20px;
+            color: white;
+            background-color: #08A600;
+        }
+
+        /* 푸터 */
+        #footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #8E8E8E;
+            font-size: 13px;
+        }
+
+        .msg {
+            color: red;
+            font-size: 12px;
+            font-weight: 400;
+            margin-top: 10px;
+        }
