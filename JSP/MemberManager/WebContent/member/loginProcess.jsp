@@ -64,3 +64,31 @@
 
 </body>
 </html>
+
+
+
+
+
+<jsp:useBean id="loginInfo" class="member.MemberInfo" scope="session"/>
+<jsp:setProperty property="uId" name="loginInfo" value="<%= userId %>"/>
+<%
+	loginInfo.setuPW(userPw);
+%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

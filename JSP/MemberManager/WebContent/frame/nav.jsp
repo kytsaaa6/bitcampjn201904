@@ -6,8 +6,10 @@
 		<!-- ContextROOT 경로를 동적으로 추가해준다.
 		getContextPath() 메서드는 Context 경로를 자동으로 가져옴.
 		Context 경로가 바뀌어도 상관없다. -->
-		<li><a href="<%= request.getContextPath() %>/member/login.jsp">로그인</a></li>
-		<li><a href="<%= request.getContextPath() %>/member/memberRegForm.jsp">회원가입</a></li>
-		<li><a href="#">회원리스트</a></li>
+		<li><a href="<%= request.getContextPath() %>/member/login.jsp">Login</a></li>
+		<li><a href="<%= request.getContextPath() %>/member/memberRegForm.jsp">Join</a></li>
+		<li><a href="<%= request.getContextPath() %>/member/myPage.jsp">MyPage</a></li>
+		<li><a href="#">MemberList</a></li>
+		<li><a href="<%= request.getContextPath() %>/member/logout.jsp">Logout</a></li>
 	</ul>
 </div>
