@@ -25,20 +25,7 @@
 		</select>
 		<input type="submit" value="보내기">
 	
-	
-	
 	</form>
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

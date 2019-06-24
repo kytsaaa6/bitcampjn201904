@@ -35,7 +35,6 @@
 	} else if(pType.equals("b")) {
 %>
 	<jsp:forward page="page_b.jsp"/>
-
 <%
 	} else {
 %>
