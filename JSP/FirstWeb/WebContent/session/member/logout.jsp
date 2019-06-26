@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	// 현재 세션을 삭제한다.
+	session.invalidate();
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,18 +16,8 @@
 </head>
 <body>
 
-	<%
-		//request.getSession(false).invalidate();
-		session.invalidate();
-	%>
-
-	<h1>로그아웃되었습니다.</h1>
-
-	<a href="viewSession.jsp">viewSession1</a>
-	<br>
-
-	<a href="../response/viewSession.jsp">response/viewSession1</a>
-	<br>
+	<h1>정상적으로 로그아웃 되었습니다.</h1>
+	<a href="loginCheck.jsp">loginCheck</a>
 
 </body>
 </html>
