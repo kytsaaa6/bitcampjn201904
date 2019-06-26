@@ -8,6 +8,15 @@
 <jsp:useBean id="memberInfo" class="member.MemberInfo"/>
 <!-- 생성된 객체에 데이터 바인딩 : 폼의 name 속성과 beans 클래스의 변수 이름이 동일해야한다!!!!!  -->
 <jsp:setProperty property="*" name="memberInfo"/>
+<%
+	// 기본 이미지 (사진파일 미 선택 시)
+	if(memberInfo.getuPhoto() == null) {
+		memberInfo.setuPhoto("noImg.png");
+	}
+	// 내장객체에 회원정보 객체를 저장(tomcat 재실행 하기 전까지 저장)
+	application.setAttribute(memberInfo.getuId(), memberInfo);
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,7 +46,8 @@
 <div id="contents">
 	<h3>회원가입 페이지</h3>
 	<hr>
-	<%= memberInfo.makeHtmlDiv() %>
+	<%= memberInfo.makeHtmlDiv()  %>
+
 </div>
 <!-- 컨텐츠 끝 -->
 

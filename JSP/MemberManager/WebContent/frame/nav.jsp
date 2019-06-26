@@ -1,5 +1,8 @@
+<%@page import="member.LoginInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+
 <div id="nav">
 	<ul>
 		<li><a href="<%= request.getContextPath() %>">홈</a></li>
@@ -9,7 +12,8 @@
 		<li><a href="<%= request.getContextPath() %>/member/login.jsp">Login</a></li>
 		<li><a href="<%= request.getContextPath() %>/member/memberRegForm.jsp">Join</a></li>
 		<li><a href="<%= request.getContextPath() %>/member/myPage.jsp">MyPage</a></li>
-		<li><a href="#">MemberList</a></li>
+		<li><a href="<%= request.getContextPath() %>/member/memberList.jsp">MemberList</a></li>
 		<li><a href="<%= request.getContextPath() %>/member/logout.jsp">Logout</a></li>
+		
 	</ul>
 </div>

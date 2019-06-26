@@ -1,5 +1,15 @@
+<%@page import="member.LoginInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("utf-8");
+%>
+<%
+	String userId = request.getParameter("uId");
+	String userPw = request.getParameter("uPw");
+	String userName = request.getParameter("uName");
+	
+%>	
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,14 +22,7 @@
 </style>
 </head>
 <body>
-<%
-	request.setCharacterEncoding("utf-8");
-%>
-<%
-	String userId = request.getParameter("uId");
-	String userPw = request.getParameter("uPw");
-	String userName = request.getParameter("uName");
-%>
+
 
 
 <!-- 헤더 시작 -->

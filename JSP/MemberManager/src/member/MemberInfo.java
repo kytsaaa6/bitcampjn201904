@@ -8,7 +8,7 @@ public class MemberInfo {
 	
 	// 각 변수의 접근 제어지시자는 private 
 	private String uId;
-	private String uPW;
+	private String uPw;
 	private String uName;
 	private String uPhoto;
 	private Date regDate;
@@ -19,10 +19,10 @@ public class MemberInfo {
 		this.regDate = new Date();
 	}
 	
-	public MemberInfo(String uId, String uPW, String uName, String uPhoto) {
+	public MemberInfo(String uId, String uPw, String uName, String uPhoto) {
 		super();
 		this.uId = uId;
-		this.uPW = uPW;
+		this.uPw = uPw;
 		this.uName = uName;
 		this.uPhoto = uPhoto;
 		this.regDate = new Date();
@@ -38,12 +38,12 @@ public class MemberInfo {
 		this.uId = uId;
 	}
 
-	public String getuPW() {
-		return uPW;
+	public String getuPw() {
+		return uPw;
 	}
 
-	public void setuPW(String uPW) {
-		this.uPW = uPW;
+	public void setuPw(String uPw) {
+		this.uPw = uPw;
 	}
 
 	public String getuName() {
@@ -74,7 +74,7 @@ public class MemberInfo {
 	// 데이터 확인을 위한 toString 오버라이딩
 	@Override
 	public String toString() {
-		return "MemberInfo [uId=" + uId + ", uPW=" + uPW + ", uName=" + uName + ", uPhoto=" + uPhoto + ", regDate="
+		return "MemberInfo [uId=" + uId + ", uPw=" + uPw + ", uName=" + uName + ", uPhoto=" + uPhoto + ", regDate="
 				+ regDate + "]";
 	}
 	
@@ -87,7 +87,7 @@ public class MemberInfo {
 		str += "		" + uId + "("+ uName +")\n";
 		str += "	</h3> \n";
 		str += "	<p> \n";
-		str += "		"+ uPW;
+		str += "		"+ uPw;
 		str += "	</p> \n";
 		str += "</div> \n";
 		
@@ -96,7 +96,11 @@ public class MemberInfo {
 		return str;
 	}
 	
-	
+	// MemberInfo 객체 -> LoginInfo 객체 반환
+	public LoginInfo toLoginInfo() {
+		
+		return new LoginInfo(uId, uName, uPhoto);
+	}
 	
 	
 
