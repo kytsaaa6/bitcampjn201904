@@ -4,6 +4,7 @@
     
 <% 
 	CookieBox cBox = new CookieBox(request);
+
 %>
 <!DOCTYPE html>
 <html>
@@ -22,8 +23,8 @@
 	<form action="login.jsp" method="post">
 		아이디 <input type="text" name=id value=<%= cBox.getValue("ID") %>> <br> 
 		비밀번호 <input type="text" name="pw" value=<%= cBox.getValue("PW") %>> <br>
-		 
-		아이디 저장해서 사용<input type="checkbox" checked name="setId" value="set"><br>
+		
+		아이디 저장해서 사용<input type="checkbox" name="setId" value="set"><br>
 		<input type="submit"value="로그인">
 	</form>
 	

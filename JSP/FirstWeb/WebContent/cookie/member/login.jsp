@@ -19,21 +19,16 @@
 		
 		chk = true;
 	}
-	if(setId != null && id != null) {
-		if (setId.equals("set")) {
+	if(id != null && pw != null && id.length() > 1 && setId.equals("set")) {
 			Cookie idSet = CookieBox.createCookie("ID", id, -1);
 			response.addCookie(idSet);
 			Cookie pwSet = CookieBox.createCookie("PW", pw, -1);
 			response.addCookie(pwSet);
+			String checked = "checked";
 			out.print("자동 저장 완료");
-		} 
-	} else {
-		Cookie idSet = CookieBox.createCookie("ID", "", -1);
-		response.addCookie(idSet);
-		Cookie pwSet = CookieBox.createCookie("PW", "", -1);
-		response.addCookie(pwSet);
-		out.print("자동 저장 삭제");
-	}
+			
+			
+	} 
 %>
 
 <!DOCTYPE html>
@@ -53,6 +48,10 @@
 			out.println("<h1>로그인 되었습니다.</h1>");
 			out.println("<a href=\"loginCheck.jsp\">loginCheck</a>");
 		} else {
+			Cookie idSet = CookieBox.createCookie("ID", "", -1);
+			response.addCookie(idSet);
+			Cookie pwSet = CookieBox.createCookie("PW", "", -1);
+			response.addCookie(pwSet);
 			out.println("<script>alert(\'로그인 실패\'); history.go(-1); </script>");
 		}
 	%>

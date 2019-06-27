@@ -47,6 +47,10 @@
 	<h3>회원가입 페이지</h3>
 	<hr>
 	<%= memberInfo.makeHtmlDiv()  %>
+	<!-- 
+	EL은 메서드가 getter 방식이면 변수형식으로 호출 가능
+	아니면 메서드 형식으로 호출 -->
+	${memberInfo.makeHtmlDiv()}
 
 </div>
 <!-- 컨텐츠 끝 -->
