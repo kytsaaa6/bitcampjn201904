@@ -6,29 +6,38 @@
 
 	String id = request.getParameter("id");
 	String pw = request.getParameter("pw");
-	String setId = request.getParameter("setId");
+	String auto = request.getParameter("auto");
 	
 	boolean chk = false;
 	
-	if(id.equals(pw)){
+	/* 유효성 검사 */
+	if (id.equals(pw) && id != null && pw != null && id.length() > 1) {
 		// 쿠키 생성 : 사용자 데이터를 저장
 		Cookie c1 = CookieBox.createCookie("LOGIN", "SUCCESS", -1);
 		response.addCookie(c1);
-/* 		Cookie c2 = CookieBox.createCookie("ID", id, -1);
-		response.addCookie(c2); */
-		
+		Cookie c2 = CookieBox.createCookie("ID", id, -1);
+		response.addCookie(c2);
+
 		chk = true;
-	}
-	if(id != null && pw != null && id.length() > 1 && setId.equals("set")) {
-			Cookie idSet = CookieBox.createCookie("ID", id, -1);
+		
+		/* 자동 로그인 체크 여부 */
+		if (auto != null && auto.equals("on")) {
+			Cookie idSet = CookieBox.createCookie("ID2", id, -1);
 			response.addCookie(idSet);
-			Cookie pwSet = CookieBox.createCookie("PW", pw, -1);
+			Cookie pwSet = CookieBox.createCookie("PW2", pw, -1);
 			response.addCookie(pwSet);
-			String checked = "checked";
-			out.print("자동 저장 완료");
-			
-			
-	} 
+			out.print("ID/PW 저장 완료");
+		} else {
+			Cookie idSet = CookieBox.createCookie("ID2", "", -1);
+			response.addCookie(idSet);
+			Cookie pwSet = CookieBox.createCookie("PW2", "", -1);
+			response.addCookie(pwSet);
+		}
+
+	} else {
+		out.println("<script>alert(\'로그인 실패\'); history.go(-1); </script>");
+
+	}
 %>
 
 <!DOCTYPE html>
@@ -42,20 +51,12 @@
 </style>
 </head>
 <body>
-
 	<%
-		if(chk) {
-			out.println("<h1>로그인 되었습니다.</h1>");
-			out.println("<a href=\"loginCheck.jsp\">loginCheck</a>");
-		} else {
-			Cookie idSet = CookieBox.createCookie("ID", "", -1);
-			response.addCookie(idSet);
-			Cookie pwSet = CookieBox.createCookie("PW", "", -1);
-			response.addCookie(pwSet);
-			out.println("<script>alert(\'로그인 실패\'); history.go(-1); </script>");
-		}
+	if(chk) {
+		out.print("<h1>로그인 되었습니다.</h1>");
+		out.print("<a href='loginCheck.jsp'>loginCheck</a> <br>");
+		out.print("<a href='loginForm.jsp'>로그인 페이지로 이동</a>");
+	} 
 	%>
-
-	<a href="loginForm.jsp">로그인 페이지로 이동</a>
 </body>
 </html>

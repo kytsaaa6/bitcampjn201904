@@ -6,6 +6,8 @@
 	response.addCookie(c1);
 	Cookie c2 = CookieBox.createCookie("ID", "", 0);
 	response.addCookie(c2);
+	Cookie c3 = CookieBox.createCookie("PW", "", 0);
+	response.addCookie(c3);
 %>
 
 

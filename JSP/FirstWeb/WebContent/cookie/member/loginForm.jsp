@@ -21,10 +21,10 @@
 	<h1>로그인</h1>
 	<hr>
 	<form action="login.jsp" method="post">
-		아이디 <input type="text" name=id value=<%= cBox.getValue("ID") %>> <br> 
-		비밀번호 <input type="text" name="pw" value=<%= cBox.getValue("PW") %>> <br>
+		아이디 <input type="text" name=id value=<%= cBox.getValue("ID2") %>> <br> 
+		비밀번호 <input type="text" name="pw" value=<%= cBox.getValue("PW2") %>> <br>
 		
-		아이디 저장해서 사용<input type="checkbox" name="setId" value="set"><br>
+		ID/PW 저장<input type="checkbox" name="auto" value="on"><br>
 		<input type="submit"value="로그인">
 	</form>
 	
