@@ -88,7 +88,7 @@ select ename, sal, comm, sal*12+comm, ifnull(comm, 0) from emp;
 
 -- 컬럼과 문자열을 연결하는 결과 출력, sql에서 문자열 표현은 ' ' 로 묶는다.
 -- oracle ||
-select ename || ' is a ' || job from emp;
+-- select ename || ' is a ' || job from emp;
 -- mysql concat()
 select concat(ename,' is a ',job) from emp;
 
