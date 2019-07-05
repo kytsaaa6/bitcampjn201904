@@ -25,5 +25,5 @@ select ename,job,sal,
             WHEN 'SALESMAN' THEN sal+180
             WHEN 'MANAGER' THEN sal+150
             WHEN 'CLERK' THEN sal+100
-		END as DNAME
+		END as after_sal
 from emp;
