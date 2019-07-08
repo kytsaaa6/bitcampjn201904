@@ -82,7 +82,7 @@ select sal, sal / 2 from emp;
 -- 특정 컬럼의 데이터가 null 인경우 특정 데이터로 치환해주는 함수
 -- nvl (컬럼이름, 치환값)
 -- oracle nvl()
-select ename, sal, comm, sal*12+comm from emp;
+-- select ename, sal, comm, sal*12+comm from emp;
 -- mysql ifnull()
 select ename, sal, comm, sal*12+comm, ifnull(comm, 0) from emp;
 

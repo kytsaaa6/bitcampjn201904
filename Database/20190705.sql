@@ -226,18 +226,18 @@ create table emp07 (
 -- 이름 : 10 자리 문자열				- not null
 -- 사진경로(파일이름) : 30자리 문자열
 -- 가입날짜 : 날짜타입					- default sysdate
-create table memberinfo (
+create table MemberInfo (
 	idx int(7),
-    mId varchar(12),
-    mPw varchar(16),
-    mName varchar(20),
+    mId varchar(12) not null,
+    mPw varchar(16) not null,
+    mName varchar(20) not null,
     mPhoto varchar(30),
-    regDate date default now(),
+    regDate datetime default now(),
+    
     constraint memberinfo_idx_pk primary key (idx),
     constraint memberinfo_mId_uk unique (mId)
-    
     )
-    
-    
+;
+
 
     
