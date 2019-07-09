@@ -17,7 +17,9 @@ from emp
 where sal > (select avg(sal)
 			 from emp)
 ;
-
+select * from emp;
+delete from dept where deptno=90;
+commit;
 -- 급여가 3000 이상인 사원의 소속 부서
 -- 해당 부서의 근무하는 사원의 리스트
 
