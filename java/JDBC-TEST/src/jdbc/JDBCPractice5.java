@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class JDBCQuestion5 {
+public class JDBCPractice5 {
 
 	public static void main(String[] args) {
 		

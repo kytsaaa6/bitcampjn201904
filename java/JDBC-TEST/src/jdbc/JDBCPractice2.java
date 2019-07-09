@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class JDBCQuestion4 {
+public class JDBCPractice2 {
 
 	public static void main(String[] args) {
 		
@@ -21,13 +21,17 @@ public class JDBCQuestion4 {
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/project?serverTimezone=UTC", "bit", "bit");
 			System.out.println("MYSQL에 정상적으로 연결되었습니다. ");
 			
-			// 문제 4. EMP 테이블에 서 “SCOTT” 이름으로 검색한 결과를 출력하는 프로그램을 작성해보자.
-			String sqlSelect = "select * from emp where ename = 'SCOTT'";
+			
+			// 문제 2. EMP 테이블의 모든 데이터를 출력하는 프로그램을 작성해보자.
+			String sqlSelect = "select * from emp";
 			PreparedStatement pstmt = conn.prepareStatement(sqlSelect);
+			
+			// 데이터를 가져옴
 			ResultSet rs = pstmt.executeQuery();
 			
+			// 행을 하나씩 가져옴. 더 이상 행이 없을 경우 종료
 			while (rs.next()) {
-				System.out.println("SCOTT 사원의 정보 안내드립니다.");
+				// 지정 컬럼의 값을 String 타입의 값으로 반환
 				System.out.println("사원번호		: " + rs.getInt(1));
 				System.out.println("사원이름		: " + rs.getString(2));
 				System.out.println("직업 		: " + rs.getString(3));
@@ -37,7 +41,6 @@ public class JDBCQuestion4 {
 				System.out.println("성과금		: " + rs.getInt(7));
 				System.out.println("부서번호		: " + rs.getInt(8));
 				System.out.println("--------------------------------------------");
-
 			}
 			
 			rs.close();
