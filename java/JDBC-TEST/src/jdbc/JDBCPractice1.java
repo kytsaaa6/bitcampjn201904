@@ -55,7 +55,6 @@ public class JDBCPractice1 {
 			e.printStackTrace();
 		}
 		
-
 	}
 
 }

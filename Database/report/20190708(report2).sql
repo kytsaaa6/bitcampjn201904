@@ -9,10 +9,6 @@ where custid in (select o.custid
                     where c.name = '박지성')
 ;
 
-select * from orders;
-select * from customer;
-select * from book;
-
 -- (6) 박지성이구매한도서의이름, 가격, 정가와판매가격의차이
 select b.bookname, o.saleprice, b.price-o.saleprice
 from orders o inner join book b
@@ -39,10 +35,6 @@ from customer
 where custid not in (select custid
 					 from orders
 					 );
-
-select * from orders;
-select * from customer;
-select * from book;
 
 -- (9) 주문금액의총액과주문의평균금액
 select sum(saleprice),avg(saleprice)
@@ -72,21 +64,52 @@ where (price-saleprice) in (select max(price-saleprice)
                             )
 ;
 
--- (13) 도서의판매액평균보다자신의구매액평균이더높은고객의이름
+-- (13) 도서의판매액평균보다자신의구매액평균이더높은고객의이름                
 select name, avg(saleprice)
 from orders o inner join customer c
 on o.custid=c.custid
-where avg(saleprice) > (select
-
-group by name;
+group by name
+having avg(o.saleprice) > (select avg(saleprice)
+							from orders
+							)
+;
 
 -- 3. 마당서점에서 다음의 심화된 질문에 대해 SQL 문을 작성하시오.
 -- (1) 박지성이 구매한 도서의 출판사와 같은 출판사에서 도서를 구매한 고객의 이름
--- (2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
+select c.name,publisher
+from orders o,customer c, book b
+where o.custid=c.custid and o.bookid=b.bookid
+and publisher in (select publisher
+					from orders o,customer c, book b
+					where o.custid=c.custid and o.bookid=b.bookid
+                    and name = '박지성'
+                    )
+                    and name !='박지성'
+;
 
+-- (2) 두 개 이상의 서로 다른 출판사에서 도서를 구매한 고객의 이름
+select name, count(distinct publisher) as cnt
+from customer c, book b, orders o 
+where c.custid = o.custid 
+and b.bookid = o.bookid
+group by name having cnt >= 2;
+
+select * from MemberInfo;
 -- 4 다음질의에대해DML 문을작성하시오.
 -- (1) 새로운도서(‘스포츠세계’, ‘대한미디어’, 10000원)이마당서점에입고되었다.
 --     삽입이안될경우필요한데이터가더있는지찾아보자.
+select * from book;
+
+insert into book (bookname,publisher,price)
+values ('스포츠세계','대한미디어',10000);
+insert into book
+values (11,'스포츠세계','대한미디어',10000);
+
 -- (2) ‘삼성당’에서출판한도서를삭제해야한다.
+delete from book where publisher = '삼성당';
+
 -- (3) ‘이상미디어’에서출판한도서를삭제해야한다. 삭제가안될경우원인을생각해보자.
+delete from book where publisher = '이상미디어';
+
 -- (4) 출판사‘대한미디어’가‘대한출판사’로이름을바꾸었다.
+update book set publisher='대한출판사' where publisher='대한미디어'; 
