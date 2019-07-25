@@ -5,10 +5,10 @@ import java.sql.SQLException;
 import java.util.Collections;
 import java.util.List;
 
-import gdbc.ConnectionProvider;
 import guestbook.dao.MessageDao;
-import guestbook.dao.MessageListView;
 import guestbook.model.Message;
+import guestbook.model.MessageListView;
+import jdbc.ConnectionProvider;
 
 public class GetMessageListService {
 
@@ -50,17 +50,26 @@ public class GetMessageListService {
 			int firstRow = 0;
 			int endRow = 0;
 			
-			if(messageTotalCount > 0) {
-				
-				firstRow = (pageNumber-1)*MESSAGE_COUNT_PER_PAGE + 1; 
-				endRow = firstRow + MESSAGE_COUNT_PER_PAGE - 1;
-				
-				messageList = dao.selectList(conn, firstRow, endRow); 
-				
-			} else {
-				currentPageNumber = 0;
-				messageList = Collections.emptyList();
-			}
+			
+			if(messageTotalCount > 0 ) {
+	            firstRow = (pageNumber - 1) * MESSAGE_COUNT_PER_PAGE ;
+	            endRow = MESSAGE_COUNT_PER_PAGE ;
+	            messageList = dao.selectList(conn, firstRow, endRow);
+	                  
+	         } else {
+	            currentPageNumber = 0;
+	            messageList = Collections.emptyList();
+	         }
+			
+			/*
+			 * if(messageTotalCount > 0) {
+			 * 
+			 * firstRow = (pageNumber-1)*MESSAGE_COUNT_PER_PAGE + 1; 
+			 * endRow = firstRow + MESSAGE_COUNT_PER_PAGE - 1;
+			 * messageList = dao.selectList(conn, firstRow, endRow);
+			 * 
+			 * } else { currentPageNumber = 0; messageList = Collections.emptyList(); }
+			 */
 			
 			view = new MessageListView(messageTotalCount, 
 										currentPageNumber, 

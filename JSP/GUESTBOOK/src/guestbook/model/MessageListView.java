@@ -1,8 +1,6 @@
-package guestbook.dao;
+package guestbook.model;
 
 import java.util.List;
-
-import guestbook.model.Message;
 
 public class MessageListView {
 

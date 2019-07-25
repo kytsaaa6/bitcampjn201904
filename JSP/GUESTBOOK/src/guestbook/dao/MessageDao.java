@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import guestbook.model.Message;
+import jdbc.jdbcUtil;
 
 public class MessageDao {
 
@@ -73,7 +74,6 @@ public class MessageDao {
 				message.setMessage(rs.getString(4));
 			}
 			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -87,18 +87,29 @@ public class MessageDao {
 		Statement stmt = null;
 		ResultSet rs = null;
 		
-		int totalCnt = 0;
+		 int totalCnt = 0; //전체게시물의개수 카운트
+	      
+	      String sql = "select count(*) from GUESTBOOK_MESSAGE";
+	      
+	      try {
+	         stmt = conn.createStatement();
+	         rs = stmt.executeQuery(sql);
+	         
+	         if(rs.next()) {
+	            totalCnt = rs.getInt(1);
+	         }
 		
-		String sql = "select count(*) from guestbook_message";
-		
-		try {
-			stmt = conn.createStatement();
-			
-			rs = stmt.executeQuery(sql);
-			
-			if(rs.next()) {
-				totalCnt = rs.getInt(1);
-			}
+		/*
+		 * int totalCnt = 0;
+		 * 
+		 * String sql = "select count(*) from guestbook_message";
+		 * 
+		 * try { stmt = conn.createStatement();
+		 * 
+		 * rs = stmt.executeQuery(sql);
+		 * 
+		 * if(rs.next()) { totalCnt = rs.getInt(1); }
+		 */
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -107,29 +118,26 @@ public class MessageDao {
 		return totalCnt;
 	}
 
-	public List<Message> selectList(Connection conn, int firstRow, int endRow) {
+	public List<Message> selectList(Connection conn, int firstRow, int messageCountPerPage) {
 
 		List<Message> list = new ArrayList<Message>();
 		
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select message_id, guest_name, password, message from ( "
-		+ " select rownum rnum, message_id, guest_name, password, message from ( "
-		+ " select * from guestbook_message m order by m.message_id desc "
-		+ " ) where rownum <= ? “ "
-		+ " ) where rnum >= ?";
+		String sql = "select * from guestbook_message order by message_id desc limit ?, ?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, endRow);
-			pstmt.setInt(2, firstRow);
+			pstmt.setInt(1, firstRow);
+			pstmt.setInt(2, messageCountPerPage);
 
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
 				
 				Message msg = new Message();
+				
 				msg.setId(rs.getInt(1));
 				msg.setGuestName(rs.getString(2));
 				msg.setPassword(rs.getString(3));
@@ -139,12 +147,33 @@ public class MessageDao {
 				
 			}
 			
-			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
-		return null;
+		return list;
+	}
+
+	public int deleteMessage(Connection conn, int messageId) throws SQLException {
+		
+		int resultCnt = 0;
+		
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete from guestbook_message where message_id=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, messageId);
+			
+			resultCnt = pstmt.executeUpdate();
+			
+			
+		} finally {
+			jdbcUtil.close(pstmt);
+		}
+		
+		return resultCnt;
 	}
 	
 	

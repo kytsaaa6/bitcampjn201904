@@ -3,9 +3,9 @@ package guestbook.service;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import gdbc.ConnectionProvider;
 import guestbook.dao.MessageDao;
 import guestbook.model.Message;
+import jdbc.ConnectionProvider;
 
 public class WriteMessageService {
 
@@ -19,8 +19,6 @@ public class WriteMessageService {
 	
 	// 생성자 제한
 	private WriteMessageService() {}
-	
-	
 	
 	public int write(Message message) {
 		

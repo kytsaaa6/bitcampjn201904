@@ -1,9 +1,12 @@
 <%@page import="guestbook.model.Message"%>
-<%@page import="guestbook.dao.MessageListView"%>
+<%@page import="guestbook.model.MessageListView"%>
 <%@page import="guestbook.service.GetMessageListService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
+
+
+	request.setCharacterEncoding("utf-8");
 
 	String pageNumberstr = request.getParameter("page");
 
@@ -79,7 +82,7 @@
 				메시지 번호 : <%= message.getId() %><br>
 				손님 이름 : <%= message.getGuestName() %><br>
 				메시지 : <%= message.getMessage() %><br>
-				<a href="#">삭제하기</a>
+				<a href="confirmDeletion.jsp?messageId=<%= message.getId() %>">삭제하기</a>
 			</div>
 			
 			<%
