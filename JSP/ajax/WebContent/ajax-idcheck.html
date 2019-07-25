@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <title>jQuery Ajax Basic</title>
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(document).ready(function () {
+        	
+        	
+        	//$('#btn').click(function() {
+        	$('#uId').focusout(function() {
+        		
+        		$('#idchkMsg').html("");
+        		
+        		
+        		$.ajax({
+                    url: 'idCheck.jsp',
+                    type: 'GET',
+                    data: {
+                       uId: $('#uId').val(),
+                    },
+                    success: function (data) {
+                     	if(data == 'Y') {
+							//$('body').append('<span style="color:blue;">멋진 아이디 입니다.</span>');
+							$('#idchkMsg').html('GOOD ID');
+							$('#idchkMsg').css('color','blue');
+						} else {
+							//$('body').append('<span style="color:red;">사용할수 없는 아이디 입니다.</span>');
+							$('#idchkMsg').html('InValid ID');
+							$('#idchkMsg').css('color','red');
+                    	}
+                    }
+                });	
+        		
+        	});
+        	
+        	
+        	
+        	setTimeout(function() {
+        		
+
+        		
+        	}, 5000);
+        	
+            
+        });
+    </script>
+</head>
+<body>
+
+<input type="text" id="uId" value=""> <!-- <input type="button" id="btn" value="아이디체크"> -->
+<br>
+<span id="idchkMsg"></span>
+
+
+</body>
+</html>
