@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    body {}
+
+        /* 메인랩 */
+    #main_wrap {
+        width: 938px;
+        height: 900px;
+        background-color: #f1f2f6;
+        border: 1px solid black;
+        margin: 40px auto;
+    }
+    
+    #header {
+        width: 910px;
+        background-color: blanchedalmond;
+        border: 1px solid black;
+        margin: 10px;
+    }
+    
+    #header>h3 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    #nav {
+        margin-left: 700px;
+        width: 300px;
+        display: inline;
+    }
+    
+    #nav>ul>li {
+        float: right;
+        list-style: none;
+        padding: 5px;
+        
+    }
+    
+    #contents {
+        clear: both;
+        background-color: azure
+    }
+    
+    #aside {
+        width: 150px;
+        height: 200px;
+        margin-left: 750px;
+        margin-top: 200px;
+        border: 1px solid black;
+        text-align: right;
+    }
+    
+    #aside>ul>li {
+        list-style: none;
+        margin: 10px;
+    }
+    
+</style>
+</head>
+<body>
+
+	<div id="main_wrap">
+		<div id="header">
+		    <h2>Share Hobby</h2>
+		    <h3> 여행/관광 정보</h3>
+			<div id="nav">
+			    <ul>
+                    <li>로그인</li>
+                    <li>회원가입</li>
+			        <li>마이페이지</li>
+			        <li>로그아웃</li>
+			    </ul>
+			</div>
+		</div>
+		
+		<div id="contents">
+			<div id="content">
+			    		<a href="CreateBoard.jsp">리뷰 작성</a>
+		<hr>
+		<br>
+
+<%
+		if(viewData.isEmpty()) {
+			%>
+			<h3>등록된 메시지가 없습니다.</h3>
+			<%
+		} else {
+			
+			for( Board board : viewData.getBoardList() ) {
+				
+			%>
+			<div>
+				<br>
+				리뷰 번호 : <%= board.getPk() %><br>
+				리뷰 제목 : <%= board.getTitle() %><br>
+				리뷰 내용 : <%= board.getContent() %><br>
+				리뷰 사진 : <%= board.getPhoto() %><br>
+				평점  : <%= board.getStar() %><br>
+				<a href="UpdateBoard.jsp?pk=<%= board.getPk() %>">수정하기</a> | <a href="DeleteBoard.jsp?pk=<%= board.getPk() %>">삭제하기</a> <br>
+				
+			</div>
+			
+			<%
+			}
+		}
+	
+	// [1] [2] [3]
+	for(int i=1; i<=viewData.getPageTotalCount(); i++){
+	%>	
+	<a href="boardmain.jsp?page=<%= i %>">[<%= i %>]</a>
+	
+	<%
+	}
+	 %>
+			
+			</div>
+			
+			<div id="aside">
+			    <ul>
+                    <li>추천 여행지</li>
+                    <li>내가 찜한 여행지</li>
+			        <li>추천 리뷰</li>
+			        <li>나의 리뷰</li>
+			    </ul>
+			</div>
+		
+		</div>
+	
+		<div id="footer">
+		
+		
+		</div>
+	
+	
+	</div>
+
+</body>
+</html>

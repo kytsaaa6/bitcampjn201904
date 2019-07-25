@@ -16,7 +16,7 @@
 	}
 	// 내장객체에 회원정보 객체를 저장(tomcat 재실행 하기 전까지 저장)
 	
-	DBCPInit 
+	
 %>
 
 <!DOCTYPE html>
