@@ -54,7 +54,10 @@ public class FrontController extends HttpServlet {
 		
 		// 초기 파라미터값 저장
 		String configfile = config.getInitParameter("config");
-		// 프로퍼티 객체 생성
+
+		// 외부의 설정 파일을 쉽게 읽기위해 프로퍼티 객체 사용
+		// commandService.properties
+		// 키, 값 모두 문자열 형식
 		Properties prop = new Properties();
 		
 		FileInputStream fis = null;
