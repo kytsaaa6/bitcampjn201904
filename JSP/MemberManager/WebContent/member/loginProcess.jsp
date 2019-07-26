@@ -1,4 +1,4 @@
-<%@page import="member.MemberInfo"%>
+<%@page import="membermanager.model.MemberInfo"%>
 <%-- <%@page import="member.LoginInfo"%> --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -40,7 +40,6 @@
 		// 세션에 회원 로그인 정보를 저장
 		// toLoginInfo() 메서드는 LoginInfo 로 객체를 생성하기 위함
 		session.setAttribute("loginInfo", memberInfo.toLoginInfo());
-
 		// 로그인 처리 후 메인페이지로 이동
 		response.sendRedirect(request.getContextPath());
 	} else {
