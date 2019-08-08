@@ -19,6 +19,7 @@
 		</li>
 		<li><a href="<c:url value='/member/regist'/>">Join</a></li>
 		<li><a href="<c:url value='/member/mypage'/>">MyPage</a></li>
+		<li><a href="<c:url value='/member/memberlist'/>">MemberList</a></li>
 		<li><a href="<c:url value='member/logout'/>">Logout</a></li>
 	</ul>
 
