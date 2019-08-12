@@ -22,6 +22,7 @@ public class MessageJdbcTemplateDao {
 	@Autowired
 	JdbcTemplate template;
 	
+	
 	public int insert(Message message) {
 		
 		String sql = "INSERT INTO GUESTBOOK_MESSAGE (GUEST_NAME, PASSWORD, MESSAGE) VALUES (?, ?, ?)";
