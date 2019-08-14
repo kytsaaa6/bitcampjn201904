@@ -1,8 +1,12 @@
 package com.bitcamp.mvc.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Login {
 
 	private String uId;
+	
+	@JsonIgnore
 	private String uPw;
 	
 	
