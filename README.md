@@ -7,4 +7,4 @@ UI/UX기반 자바 개발자 양성과정 201904~10
 - HTML5, CSS3, JavaScript, Jquery
 - JSTL
 - Spring, Mybatis
-- RestFul API
+- Rest, RestFul API
